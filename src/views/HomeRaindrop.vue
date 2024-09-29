@@ -1,7 +1,9 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div></div>
+  <div>
+    <h1>Home</h1>
+  </div>
 </template>
 
 <style lang="postcss" scoped></style>
