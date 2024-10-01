@@ -1,7 +1,11 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import LoginUserLayout from '@/layouts/LoginUserLayout.vue'
+</script>
 
 <template>
-  <h1>login</h1>
+  <LoginUserLayout>
+    <h1>bbbbbb</h1>
+  </LoginUserLayout>
 </template>
 
 <style lang="postcss" scoped></style>
