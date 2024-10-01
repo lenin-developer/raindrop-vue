@@ -2,8 +2,7 @@
 
 <template>
   <div class="loginUserLayout">
-    <div class="cotenFloat">
-      <h1>aaaa</h1>
+    <div class="floatingContainer">
       <slot></slot>
     </div>
     <video muted autoplay loop class="video">
@@ -17,20 +16,27 @@
 .loginUserLayout {
   position: relative;
   min-height: 100vh;
-  display: flex;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-areas: '. . . . . content content .';
+}
+
+.floatingContainer {
+  z-index: 1;
+  min-height: 100vh;
+  width: 100%;
+  grid-column: content;
 }
 
 .video {
   position: absolute;
   top: 0;
   left: 0;
-  height: 99vh;
+  height: 100vh;
   width: 80%;
   object-fit: cover;
   object-position: left;
-}
-
-.cotenFloat {
 }
 
 .overly {
@@ -41,7 +47,7 @@
   height: 100%;
   background: var(--color-gray-200);
   opacity: var(--opacity-05);
-  mix-blend-mode: overlay;
+  /* mix-blend-mode: overlay; */
   height: 100%;
 }
 </style>
