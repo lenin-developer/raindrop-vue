@@ -1,5 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: var(--color-background-main);
+  min-height: 100vh;
+  width: auto;
+  border: 0;
+  margin: 0;
+}
+
+#app {
+  min-height: 100vh;
 }
 
 h1,
@@ -12,4 +24,9 @@ p,
 span,
 label {
   color: var(--color-white-100);
+}
+
+image,
+video {
+  vertical-align: bottom;
 }

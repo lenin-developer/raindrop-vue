@@ -1,5 +1,5 @@
-import './assets/main.css'
 import './css/colors.css'
+import './css/opacity.css'
 import './css/global.css'
 
 import { createApp } from 'vue'
