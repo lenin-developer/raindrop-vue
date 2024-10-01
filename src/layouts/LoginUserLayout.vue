@@ -1,18 +1,19 @@
+import { defineConfig } from 'vitest/config';
 <script lang="ts" setup></script>
 
 <template>
-  <div class="loginUserLayout">
-    <div class="floatingContainer">
+  <div :class="$style.loginUserLayout">
+    <div :class="$style.loginUserLayout__containerSlot">
       <slot></slot>
     </div>
-    <video muted autoplay loop class="video">
+    <video muted autoplay loop :class="$style.loginUserLayout__video">
       <source src="/multimedia/back-ground-vide.mp4" type="video/mp4" />
     </video>
-    <div class="overly"></div>
+    <div :class="$style.loginUserLayout__overly"></div>
   </div>
 </template>
 
-<style lang="postcss" scoped>
+<style lang="postcss" module>
 .loginUserLayout {
   position: relative;
   min-height: 100vh;
@@ -22,14 +23,14 @@
   grid-template-areas: '. . . . . content content .';
 }
 
-.floatingContainer {
+.loginUserLayout__containerSlot {
   z-index: 1;
   min-height: 100vh;
   width: 100%;
   grid-column: content;
 }
 
-.video {
+.loginUserLayout__video {
   position: absolute;
   top: 0;
   left: 0;
@@ -39,7 +40,7 @@
   object-position: left;
 }
 
-.overly {
+.loginUserLayout__overly {
   position: absolute;
   top: 0;
   left: 0;
@@ -47,7 +48,7 @@
   height: 100%;
   background: var(--color-gray-200);
   opacity: var(--opacity-05);
-  /* mix-blend-mode: overlay; */
+  /* mix-blend-mode: overlay;  */
   height: 100%;
 }
 </style>
