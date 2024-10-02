@@ -18,16 +18,13 @@ import { defineConfig } from 'vitest/config';
   position: relative;
   min-height: 100vh;
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-areas: '. . . . . content content .';
 }
 
 .loginUserLayout__containerSlot {
-  z-index: 1;
+  position: relative;
   min-height: 100vh;
   width: 100%;
-  grid-column: content;
+  z-index: 1;
 }
 
 .loginUserLayout__video {
@@ -44,7 +41,7 @@ import { defineConfig } from 'vitest/config';
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 80%;
   height: 100%;
   background: var(--color-gray-200);
   opacity: var(--opacity-05);
