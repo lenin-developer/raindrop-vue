@@ -14,7 +14,7 @@
   width: 90%;
   height: 100%;
   background: #0f172a80;
-  box-shadow: 0px 0px 0px 0.5px #ffffff97;
+  box-shadow: 0px 0px 0px 0.5px var(--color-gray-300);
   border-radius: 12px;
 }
 
