@@ -1,31 +1,29 @@
 <script lang="ts" setup>
-import { ref, computed } from 'vue'
-import { type Ref } from 'vue'
+import { type Ref, ref } from 'vue'
 import { type Items } from './SwichMenuTypes'
 
 const { items } = defineProps<{
     items: Items[]
 }>()
 
-const ActiveOpctionBackgroundX = ref('0px') as Ref<string>;
-const arrayRef = { el: ref([]) };
+const idItemSeletedMenuInit = items?.[0]?.id;
+
+const BackgroundXItemActive = ref('0px') as Ref<string>;
+const idItemSeletedMenu = ref(idItemSeletedMenuInit) as Ref<number>;
 
 
-const refElementLi = computed(() => arrayRef.el.value);
+const selectItemMenu = (event: Event)=> {
+    const itemTarget = event?.target as HTMLLIElement;
+    const widthItemMenu = 160;// esto es el width del item en css "content__item"
+    const marginItemMenu = 4;// esto es el margin-left y margin-rigth del item en css "content__item"
 
-const handleClick = (event: Event) => {
-    const optionsAll = refElementLi.value as HTMLLIElement[];
-    const opcionSelect = event?.target as HTMLLIElement;
-
-    if (opcionSelect?.value) {
-        optionsAll?.map((item, index) => {
-            if (opcionSelect?.value === item?.value) {
-                ActiveOpctionBackgroundX.value = `${index * 160 + index * 4}px`;
-            }
-            item.style.color = '#fff';
-        })
-        opcionSelect.style.color = '#020420';
-    }
+    items?.find((item, index)=> {
+        if (itemTarget?.value === item?.id) {
+                BackgroundXItemActive.value = `${index * widthItemMenu + index * marginItemMenu}px`;
+                idItemSeletedMenu.value  = itemTarget?.value;
+                return true;
+        }
+    })
 }
 
 </script>
@@ -33,13 +31,13 @@ const handleClick = (event: Event) => {
 <template>
     <nav :class="[$style.swichMenu, $style.util__bordes]">
         <ul :class="$style.swichMenu__content">
-            <li v-for="item in items" :key="item.id" :value="item.id?.toString()" :ref="arrayRef.el"
-                @click="handleClick" :class="[$style.content__item, $style.util__bordes]">
+            <li v-for="item in items" :key="item.id" :value="item.id?.toString()"
+                :class="[$style.content__item, $style.util__bordes, { [$style.item__textSelected] : idItemSeletedMenu === item.id } ]" 
+                @click="selectItemMenu">
                 {{ item?.text }}
             </li>
         </ul>
-        <span :class="[$style.content__select, $style.util__bordes]"
-            :style="{ transform: `translateX(${ActiveOpctionBackgroundX})` }">
+        <span :class="[$style.content__BackgroundSelect, $style.util__bordes]"> 
         </span>
     </nav>
 </template>
@@ -68,7 +66,7 @@ const handleClick = (event: Event) => {
 }
 
 .content__item,
-.content__select {
+.content__BackgroundSelect {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,12 +80,17 @@ const handleClick = (event: Event) => {
     cursor: pointer;
 }
 
-.content__select {
+.item__textSelected {
+    font-weight: 600;
+}
+
+.content__BackgroundSelect {
     transition: all 0.2s ease-out;
     position: absolute;
     height: inherit;
     z-index: -1;
     background-color: var(--color-green-100);
+    transform: translateX(v-bind(BackgroundXItemActive));
 }
 
 .util__bordes {
@@ -95,10 +98,5 @@ const handleClick = (event: Event) => {
     border-top-right-radius: 9999px;
     border-bottom-left-radius: 9999px;
     border-bottom-right-radius: 9999px;
-}
-
-
-.item__text {
-    color: var(--color-white-100);
 }
 </style>
