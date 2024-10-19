@@ -6,17 +6,13 @@ import SwichMenu from '@/components/swichMenu/SwichMenu.vue'
 
 const items = [
   {
-    text: 'opcion 1',
+    text: 'login',
     id:1
   },
   {
-    text: 'opcion 2',
+    text: 'logoun',
     id:3
   },
-  {
-    text: 'opcion 4',
-    id:5
-  }
 ]
 
 
@@ -26,9 +22,7 @@ const items = [
   <SessionLayout>
     <SessionContainer>
       <template v-slot:menu>
-        <SwichMenu :items="items" >
-
-        </SwichMenu>
+        <SwichMenu :items="items" />
       </template>
       <template v-slot:form>
         <LoginForm />
