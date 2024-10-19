@@ -6,10 +6,8 @@ const { items } = defineProps<{
     items: Items[]
 }>()
 
-const idItemSeletedMenuInit = items?.[0]?.id;
-
-const BackgroundXItemActive = ref('0px') as Ref<string>;
-const idItemSeletedMenu = ref(idItemSeletedMenuInit) as Ref<number>;
+const BackgroundXItemSelect = ref('0px') as Ref<string>;
+const idItemSeletedMenu = ref(items?.[0]?.id) as Ref<number>;
 
 
 const selectItemMenu = (event: Event)=> {
@@ -19,7 +17,7 @@ const selectItemMenu = (event: Event)=> {
 
     items?.find((item, index)=> {
         if (itemTarget?.value === item?.id) {
-                BackgroundXItemActive.value = `${index * widthItemMenu + index * marginItemMenu}px`;
+                BackgroundXItemSelect.value = `${index * widthItemMenu + index * marginItemMenu}px`;
                 idItemSeletedMenu.value  = itemTarget?.value;
                 return true;
         }
@@ -50,19 +48,29 @@ const selectItemMenu = (event: Event)=> {
     align-items: center;
     justify-content: flex-start;
     height: 24px;
+    width: auto;
+    max-width: -webkit-fill-available; /* para que no rebace el ancho del contenedor padre */
+    max-width: -moz-available; /* para que no rebace el ancho del contenedor padre */
     padding: 4px;
-    margin: 0;
+    margin: 0px;
     outline: solid 1.5px var(--color-gray-300);
+    overflow-x: auto;/* para el desbordamiento del contenido */
+    scrollbar-width: none; /* ocultar scroll firefox*/
+    -ms-overflow-style: none; /* ocultar scroll IE 11 */
+}
 
+.swichMenu::-webkit-scrollbar{
+    display: none; /** ocultar scroll chromer */
 }
 
 .swichMenu__content {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0;
-    width: 100%;
+    width: min-content;
     height: 100%;
+    padding: 0;
+    margin: 0px;
 }
 
 .content__item,
@@ -78,6 +86,7 @@ const selectItemMenu = (event: Event)=> {
     margin: 0 2px;
     z-index: 1;
     cursor: pointer;
+    transition: font-weight 0.2s ease-out;
 }
 
 .item__textSelected {
@@ -85,12 +94,12 @@ const selectItemMenu = (event: Event)=> {
 }
 
 .content__BackgroundSelect {
-    transition: all 0.2s ease-out;
+    transition: transform 0.2s ease-out;
     position: absolute;
     height: inherit;
     z-index: -1;
     background-color: var(--color-green-100);
-    transform: translateX(v-bind(BackgroundXItemActive));
+    transform: translateX(v-bind(BackgroundXItemSelect));
 }
 
 .util__bordes {
