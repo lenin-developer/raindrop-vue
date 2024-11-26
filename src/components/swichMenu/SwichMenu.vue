@@ -1,25 +1,31 @@
 <script lang="ts" setup>
-import { type Ref, ref } from 'vue'
+import { type ModelRef, type Ref, ref } from 'vue'
 import { type Items } from './SwichMenuTypes'
 
 const { items } = defineProps<{
     items: Items[]
 }>()
 
+const itemSelect: ModelRef<unknown, number> = defineModel();
+
+console.log('ssss')
+
 const BackgroundXItemSelect = ref('0px') as Ref<string>;
 const idItemSeletedMenu = ref(items?.[0]?.id) as Ref<number>;
 
 
-const selectItemMenu = (event: Event)=> {
+const selectItemMenu = (event: Event) => {
     const itemTarget = event?.target as HTMLLIElement;
     const widthItemMenu = 160;// esto es el width del item en css "content__item"
     const marginItemMenu = 4;// esto es el margin-left y margin-rigth del item en css "content__item"
 
-    items?.find((item, index)=> {
+    items?.find((item, index) => {
         if (itemTarget?.value === item?.id) {
-                BackgroundXItemSelect.value = `${index * widthItemMenu + index * marginItemMenu}px`;
-                idItemSeletedMenu.value  = itemTarget?.value;
-                return true;
+            BackgroundXItemSelect.value = `${index * widthItemMenu + index * marginItemMenu}px`;
+            idItemSeletedMenu.value = itemTarget?.value;
+            itemSelect.value = Number(itemTarget?.value);
+
+            return true;
         }
     })
 }
@@ -30,12 +36,12 @@ const selectItemMenu = (event: Event)=> {
     <nav :class="[$style.swichMenu, $style.util__bordes]">
         <ul :class="$style.swichMenu__content">
             <li v-for="item in items" :key="item.id" :value="item.id?.toString()"
-                :class="[$style.content__item, $style.util__bordes, { [$style.item__textSelected] : idItemSeletedMenu === item.id } ]" 
+                :class="[$style.content__item, $style.util__bordes, { [$style.item__textSelected]: idItemSeletedMenu === item.id }]"
                 @click="selectItemMenu">
                 {{ item?.text }}
             </li>
         </ul>
-        <span :class="[$style.content__BackgroundSelect, $style.util__bordes]"> 
+        <span :class="[$style.content__BackgroundSelect, $style.util__bordes]">
         </span>
     </nav>
 </template>
@@ -49,18 +55,24 @@ const selectItemMenu = (event: Event)=> {
     justify-content: flex-start;
     height: 24px;
     width: auto;
-    max-width: -webkit-fill-available; /* para que no rebace el ancho del contenedor padre */
-    max-width: -moz-available; /* para que no rebace el ancho del contenedor padre */
+    max-width: -webkit-fill-available;
+    /* para que no rebace el ancho del contenedor padre */
+    max-width: -moz-available;
+    /* para que no rebace el ancho del contenedor padre */
     padding: 4px;
     margin: 0px;
     outline: solid 1.5px var(--color-gray-300);
-    overflow-x: auto;/* para el desbordamiento del contenido */
-    scrollbar-width: none; /* ocultar scroll firefox*/
-    -ms-overflow-style: none; /* ocultar scroll IE 11 */
+    overflow-x: auto;
+    /* para el desbordamiento del contenido */
+    scrollbar-width: none;
+    /* ocultar scroll firefox*/
+    -ms-overflow-style: none;
+    /* ocultar scroll IE 11 */
 }
 
-.swichMenu::-webkit-scrollbar{
-    display: none; /** ocultar scroll chromer */
+.swichMenu::-webkit-scrollbar {
+    display: none;
+    /** ocultar scroll chromer */
 }
 
 .swichMenu__content {
