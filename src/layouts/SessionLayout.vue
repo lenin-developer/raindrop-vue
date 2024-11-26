@@ -3,13 +3,13 @@ import { defineConfig } from 'vitest/config';
 
 <template>
   <div :class="$style.loginUserLayout">
-    <div :class="$style.loginUserLayout__containerSlot">
-      <slot></slot>
-    </div>
     <video muted autoplay loop :class="$style.loginUserLayout__video">
       <source src="/multimedia/back-ground-vide.mp4" type="video/mp4" />
     </video>
     <div :class="$style.loginUserLayout__overly"></div>
+    <div :class="$style.loginUserLayout__containerSlot">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -32,7 +32,7 @@ import { defineConfig } from 'vitest/config';
   top: 0;
   left: 0;
   height: 100vh;
-  width: 80%;
+  width: 75%;
   object-fit: cover;
   object-position: left;
 }
@@ -41,7 +41,7 @@ import { defineConfig } from 'vitest/config';
   position: absolute;
   top: 0;
   left: 0;
-  width: 80%;
+  width: 75%;
   height: 100%;
   background: var(--color-gray-200);
   opacity: var(--opacity-05);
