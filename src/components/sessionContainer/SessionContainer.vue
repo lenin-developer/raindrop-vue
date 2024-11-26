@@ -6,12 +6,6 @@
       <slot name="menu"></slot>
       <slot name="form"></slot>
     </div>
-    <!-- <div :class="$style.children">
-      <slot name="menu"></slot>
-    </div>
-    <div :class="$style.children">
-      <slot name="form"></slot>
-    </div> -->
   </section>
 </template>
 
@@ -20,20 +14,20 @@
   position: absolute;
   right: 10%;
   top: 3%;
-  height: 94%;
-  width: 600px;
+  width: 500px;
   background-color: #020420ae;
   backdrop-filter: blur(8px);
   border-radius: 12px;
-  box-shadow: 0px 0px 0px 3px var(--color-green-100);
+  box-shadow: 0px 0px 0px 2px var(--color-green-100);
 }
 
 .wrapper__layout {
+  height: 650px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   margin-top: 60px;
-  margin-bottom: 60px;
   gap: 60PX;
 }
 
