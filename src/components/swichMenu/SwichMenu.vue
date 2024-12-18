@@ -6,9 +6,8 @@ const { items } = defineProps<{
     items: Items[]
 }>()
 
-const itemSelect: ModelRef<unknown, number> = defineModel();
 
-console.log('ssss')
+const itemSelect: ModelRef<unknown, number> = defineModel();
 
 const BackgroundXItemSelect = ref('0px') as Ref<string>;
 const idItemSeletedMenu = ref(items?.[0]?.id) as Ref<number>;
@@ -18,6 +17,7 @@ const selectItemMenu = (event: Event) => {
     const itemTarget = event?.target as HTMLLIElement;
     const widthItemMenu = 160;// esto es el width del item en css "content__item"
     const marginItemMenu = 4;// esto es el margin-left y margin-rigth del item en css "content__item"
+
 
     items?.find((item, index) => {
         if (itemTarget?.value === item?.id) {
@@ -54,6 +54,8 @@ const selectItemMenu = (event: Event) => {
     align-items: center;
     justify-content: flex-start;
     height: 24px;
+    min-height: 24px;
+    max-height: 24px;
     width: auto;
     max-width: -webkit-fill-available;
     /* para que no rebace el ancho del contenedor padre */
