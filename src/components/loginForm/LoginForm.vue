@@ -80,12 +80,13 @@ import IconKey from '@/components/icons/IconKey.vue'
   font-weight: 800;
 }
 
-.colorIcon path {
-  fill: var(--color-green-100);
-}
 
 .colorIcon {
   zoom: 0.6;
+
+  & > path {
+    fill: var(--color-green-100);
+  } 
 }
 
 .wrapperInputIcons {
