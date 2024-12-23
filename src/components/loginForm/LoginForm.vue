@@ -2,7 +2,6 @@
 import SocialMediaButton from '@/components/socialMediaButton/SocialMediaButton.vue'
 import HrCustom from '@/components/hrCustom/HrCustom.vue'
 import InputBase from '@/components/inputBase/InputBase.vue'
-import WrapperInputIcons from '@/components/wrapperInputIcons/WrapperInputIcons.vue'
 import ButtonBase from '@/components/buttonBase/ButtonBase.vue'
 
 import IconGoogle from '@/components/icons/IconGoogle.vue'
@@ -10,15 +9,26 @@ import IconFacebook from '@/components/icons/IconFacebook.vue'
 import IconMail from '@/components/icons/IconMail.vue'
 import IconKey from '@/components/icons/IconKey.vue'
 
+defineProps<{
+  session: number
+}>()
+
+
+const dataInfo = [{
+  textSession: 'Login'
+},{
+  textSession: 'Sign in'
+}]
+
 </script>
 
 <template>
   <!-- <div :class="$style.container"> -->
   <form :class="$style.container_form">
-    <SocialMediaButton text="Login wiht Google">
+    <SocialMediaButton :text="`${dataInfo?.[session - 1]?.textSession} wiht Google`">
       <IconGoogle />
     </SocialMediaButton>
-    <SocialMediaButton text="Login wiht Facebook">
+    <SocialMediaButton :text="`${dataInfo?.[session - 1]?.textSession} wiht Facebook`">
       <IconFacebook />
     </SocialMediaButton>
 
@@ -38,16 +48,7 @@ import IconKey from '@/components/icons/IconKey.vue'
       </template>
     </InputBase>
 
-
-
-    <InputBase type="password" label="Password repit" id="password" :class="$style.InputBase" autocomplete="off">
-      <template #icon>
-        <IconKey :class="$style.colorIcon" />
-      </template>
-    </InputBase>
-
-
-    <ButtonBase> hola </ButtonBase>
+    <ButtonBase> {{ dataInfo?.[session - 1]?.textSession }} </ButtonBase>
 
   </form>
   <!-- </div> -->

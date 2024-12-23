@@ -28,7 +28,7 @@ const ItemSelected: Ref<number> = ref(items?.[0]?.id);
         <SwichMenu :items="items" v-model="ItemSelected" />
       </template>
       <template v-slot:form>
-        <LoginForm v-if="ItemSelected === 1" />
+        <LoginForm :session="ItemSelected" />
       </template>
     </SessionContainer>
   </SessionLayout>

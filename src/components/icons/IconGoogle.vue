@@ -36,9 +36,9 @@ const width = computed(() => {
 </script>
 
 <template>
-    <svg :width="width?.toString()" :height="height.toString()" viewBox="0 0 38 38" fill="none"
+    <svg :width="width?.toString()" :height="height.toString()" :viewBox="`0 0 ${width?.toString()} ${height.toString()}`" fill="none"
         xmlns="http://www.w3.org/2000/svg">
-        <g clip-path="url(#clip0_1_121)">
+        <g clip-path="url(#clip0_1_121)" :width="width?.toString()" :height="height.toString()" >
             <path
                 d="M7.09188 19.3378L5.978 23.4961L1.90681 23.5822C0.690125 21.3255 0 18.7436 0 15.9999C0 13.3467 0.64525 10.8447 1.789 8.6416H1.78988L5.41437 9.3061L7.00212 12.9089C6.66981 13.8777 6.48869 14.9177 6.48869 15.9999C6.48881 17.1743 6.70156 18.2997 7.09188 19.3378Z"
                 fill="#FBBB00" />
@@ -54,7 +54,7 @@ const width = computed(() => {
         </g>
         <defs>
             <clipPath id="clip0_1_121">
-                <rect :width="width?.toString()" :height="height.toString()" fill="white" />
+                <rect :width="width?.toString()" :height="height.toString()" fill="none" />
             </clipPath>
         </defs>
     </svg>
