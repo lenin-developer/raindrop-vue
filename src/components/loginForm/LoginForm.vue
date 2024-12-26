@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-import SocialMediaButton from '@/components/socialMediaButton/SocialMediaButton.vue'
+import { useRouter } from 'vue-router';
+import SocialMediaButton from '@/components/socialMediaButton/SocialMediaButton.vue';
+
 import HrCustom from '@/components/hrCustom/HrCustom.vue'
 import InputBase from '@/components/inputBase/InputBase.vue'
 import ButtonBase from '@/components/buttonBase/ButtonBase.vue'
@@ -8,6 +10,8 @@ import IconGoogle from '@/components/icons/IconGoogle.vue'
 import IconFacebook from '@/components/icons/IconFacebook.vue'
 import IconMail from '@/components/icons/IconMail.vue'
 import IconKey from '@/components/icons/IconKey.vue'
+
+const router = useRouter();
 
 defineProps<{
   session: number
@@ -18,17 +22,23 @@ const dataInfo = [{
   textSession: 'Login'
 },{
   textSession: 'Sign in'
-}]
+}];
+
+const login = ()=> {
+  router.push({name: 'home'})
+} 
+
+
 
 </script>
 
 <template>
   <!-- <div :class="$style.container"> -->
   <form :class="$style.container_form">
-    <SocialMediaButton :text="`${dataInfo?.[session - 1]?.textSession} wiht Google`">
+    <SocialMediaButton @click="login" :text="`${dataInfo?.[session - 1]?.textSession} wiht Google`">
       <IconGoogle />
     </SocialMediaButton>
-    <SocialMediaButton :text="`${dataInfo?.[session - 1]?.textSession} wiht Facebook`">
+    <SocialMediaButton @click="login" :text="`${dataInfo?.[session - 1]?.textSession} wiht Facebook`">
       <IconFacebook />
     </SocialMediaButton>
 
@@ -48,7 +58,7 @@ const dataInfo = [{
       </template>
     </InputBase>
 
-    <ButtonBase> {{ dataInfo?.[session - 1]?.textSession }} </ButtonBase>
+    <ButtonBase @click="login" >  {{ dataInfo?.[session - 1]?.textSession }} </ButtonBase>
 
   </form>
   <!-- </div> -->
