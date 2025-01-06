@@ -1,8 +1,14 @@
 import postcssPresetEnv from 'postcss-preset-env';
+import postcssGlobalData  from '@csstools/postcss-global-data';
 
 export default () => {
   return {
     plugins: [
+      postcssGlobalData({
+        files: [
+          './src/css/responsive.css'
+        ]
+      }),
       postcssPresetEnv({
         stage: 2,
         // features: {
