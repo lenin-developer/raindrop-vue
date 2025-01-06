@@ -1,0 +1,9 @@
+@custom-media --xxs-viewport (width <= 240px); /* swatch */
+@custom-media --xs-viewport (width <= 240px);  /* movil smoll */
+@custom-media --sm-viewport (width <= 480px);  /* movil normla */
+@custom-media --md-viewport (width <= 768px);  /* table*/
+@custom-media --lg-viewport (width <= 1024px); /* tabed and movil orinetation landscape */
+@custom-media --xl-viewport (width <= 1440px); /* dektop */
+@custom-media --xxl-viewport (width <= 1920px);/* monitor */
+
+/* https://open-props.style/#media-queries */
