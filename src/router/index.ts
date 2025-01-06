@@ -12,7 +12,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('@/views/HomeRaindrop.vue')
+      component: () => import('@/layouts/mainBoardLayout.vue')
     }
   ]
 })
