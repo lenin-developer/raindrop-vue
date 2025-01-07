@@ -7,8 +7,7 @@ type Props = {
 }
 
 
-const props: Props = withDefaults(defineProps<Props>(), {
-})
+const props: Props = defineProps<Props>()
 
 
 
