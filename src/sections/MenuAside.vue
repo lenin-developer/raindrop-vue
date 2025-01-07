@@ -24,8 +24,6 @@
     background-color: red;
     grid-area: aside;
 
-    
-
     &> :where(hr) {
         margin: 0;
         cursor: col-resize;
