@@ -24,7 +24,7 @@ const mouseUpLamda = () => {
 
 <template>
     <div ref="element" :class="$style.layout" @mouseup="mouseUpLamda">
-        <MenuAside @resize-aside-lamda="resizeAsideLamda" cursor-type="cursorType"   />
+        <MenuAside @resize-aside-lamda="resizeAsideLamda" :cursor-type="cursorType"   />
         <main :class="$style.main">
 
         </main>
@@ -45,14 +45,8 @@ const mouseUpLamda = () => {
     }
 }
 
-.aside__hr_active {
-    width: 3px;
-    cursor: col-resize;
-    background-color: var(--color-green-100);
-}
-
 .main {
-    background-color: rgb(66, 66, 154);
+    background-color: var(--color-background-main);
     grid-area: main;
 }
 </style>
