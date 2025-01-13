@@ -1,22 +1,25 @@
 <script lang="ts" setup>
-import {ref, type Ref} from 'vue';
+import { ref, type Ref } from 'vue';
 import SessionLayout from '@/layouts/SessionLayout.vue'
 import SessionContainer from '@/components/sessionContainer/SessionContainer.vue'
 import LoginForm from '@/components/loginForm/LoginForm.vue'
 import SwichMenu from '@/components/swichMenu/SwichMenu.vue'
+import type { ItemSelect } from '@/types/ItemSelect';
 
-const items = [
+
+const items: ItemSelect[] = [
   {
-    text: 'login',
-    id:1
+    text: 'Login',
+    id: 1
   },
   {
-    text: 'sign in',
-    id:2
-  },
+    text: 'Sign in',
+    id: 2
+  }
 ]
 
-const ItemSelected: Ref<number> = ref(items?.[0]?.id);
+const loginOrSignIn = ref({ ...items?.[0] }) as Ref<ItemSelect>;
+
 
 
 </script>
@@ -25,10 +28,10 @@ const ItemSelected: Ref<number> = ref(items?.[0]?.id);
   <SessionLayout>
     <SessionContainer>
       <template v-slot:menu>
-        <SwichMenu :items="items" v-model="ItemSelected" />
+        <SwichMenu :items="items" v-model="loginOrSignIn" />
       </template>
       <template v-slot:form>
-        <LoginForm :session="ItemSelected" />
+        <LoginForm :session="loginOrSignIn" />
       </template>
     </SessionContainer>
   </SessionLayout>

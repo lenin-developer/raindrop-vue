@@ -10,24 +10,17 @@ import IconGoogle from '@/components/icons/IconGoogle.vue'
 import IconFacebook from '@/components/icons/IconFacebook.vue'
 import IconMail from '@/components/icons/IconMail.vue'
 import IconKey from '@/components/icons/IconKey.vue'
+import type { ItemSelect } from '@/types/ItemSelect';
 
 const router = useRouter();
 
-defineProps<{
-  session: number
+const props = defineProps<{
+  session: ItemSelect
 }>()
-
-
-const dataInfo = [{
-  textSession: 'Login'
-},{
-  textSession: 'Sign in'
-}];
 
 const login = ()=> {
   router.push({name: 'home'})
-} 
-
+}
 
 
 </script>
@@ -35,10 +28,10 @@ const login = ()=> {
 <template>
   <!-- <div :class="$style.container"> -->
   <form :class="$style.container_form">
-    <SocialMediaButton @click="login" :text="`${dataInfo?.[session - 1]?.textSession} wiht Google`">
+    <SocialMediaButton @click="login" :text="`${session?.text} wiht Google`">
       <IconGoogle />
     </SocialMediaButton>
-    <SocialMediaButton @click="login" :text="`${dataInfo?.[session - 1]?.textSession} wiht Facebook`">
+    <SocialMediaButton @click="login" :text="`${props?.session?.text} wiht Facebook`">
       <IconFacebook />
     </SocialMediaButton>
 
@@ -58,7 +51,7 @@ const login = ()=> {
       </template>
     </InputBase>
 
-    <ButtonBase @click="login" >  {{ dataInfo?.[session - 1]?.textSession }} </ButtonBase>
+    <ButtonBase @click="login" >  {{session?.text}} </ButtonBase>
 
   </form>
   <!-- </div> -->

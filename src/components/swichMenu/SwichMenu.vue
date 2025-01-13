@@ -1,42 +1,69 @@
 <script lang="ts" setup>
-import { type ModelRef, type Ref, ref } from 'vue'
-import { type Items } from './SwichMenuTypes'
+import { onMounted, onUnmounted, ref } from 'vue'
+import type { ModelRef, Ref } from 'vue'
+import type { ItemSelect } from '@/types/ItemSelect';
 
 const { items } = defineProps<{
-    items: Items[]
+    items: ItemSelect[],
 }>()
 
+const itemSelect = defineModel() as ModelRef<ItemSelect>;
 
-const itemSelect: ModelRef<unknown, number> = defineModel();
+const translateXItem = ref('0px') as Ref<string>;
+const indexItemSelected = ref(0) as Ref<number>;
+const ulRef = ref(null) as Ref<HTMLUListElement | null>;
 
-const BackgroundXItemSelect = ref('0px') as Ref<string>;
-const idItemSeletedMenu = ref(items?.[0]?.id) as Ref<number>;
+const mediaQueryMovil = window.matchMedia('(max-width: 480px)')
+const mediaQueryDesktop = window.matchMedia('(min-width: 480px)')
+
+
+const calculateTranslateXItem = (index: number) => {
+    const li = ulRef.value?.firstElementChild  ;
+    const widthItem = li?.clientWidth || 0;
+    const marginItemMenu = 4;// esto es el margin-left y margin-rigth del item en css "content__item"
+    translateXItem.value = `${index * widthItem + index * marginItemMenu}px`;
+}
 
 
 const selectItemMenu = (event: Event) => {
     const itemTarget = event?.target as HTMLLIElement;
-    const widthItemMenu = 160;// esto es el width del item en css "content__item"
-    const marginItemMenu = 4;// esto es el margin-left y margin-rigth del item en css "content__item"
-
 
     items?.find((item, index) => {
         if (itemTarget?.value === item?.id) {
-            BackgroundXItemSelect.value = `${index * widthItemMenu + index * marginItemMenu}px`;
-            idItemSeletedMenu.value = itemTarget?.value;
-            itemSelect.value = Number(itemTarget?.value);
-
-            return true;
+            calculateTranslateXItem(index)
+            itemSelect.value = item;
+            indexItemSelected.value = index;
         }
     })
 }
+
+
+onMounted(() => {
+    mediaQueryMovil.addEventListener('change', (e) => {
+        if (e.matches, ulRef.value) {
+            calculateTranslateXItem(indexItemSelected.value)
+        }
+    })
+    mediaQueryDesktop.addEventListener('change', (e) => {
+        if (e.matches, ulRef.value) {
+            calculateTranslateXItem(indexItemSelected.value)
+        }
+    })
+})
+
+
+onUnmounted(() => {
+    mediaQueryMovil.removeEventListener('change', () => { })
+    mediaQueryDesktop.removeEventListener('change', () => { })
+})
 
 </script>
 
 <template>
     <nav :class="[$style.swichMenu, $style.util__bordes]">
-        <ul :class="$style.swichMenu__content">
+        <ul :class="$style.swichMenu__content" ref="ulRef">
             <li v-for="item in items" :key="item.id" :value="item.id?.toString()"
-                :class="[$style.content__item, $style.util__bordes, { [$style.item__textSelected]: idItemSeletedMenu === item.id }]"
+                :class="[$style.content__item, $style.util__bordes, { [$style.item__textSelected]: itemSelect?.id === item.id }]"
                 @click="selectItemMenu">
                 {{ item?.text }}
             </li>
@@ -101,6 +128,11 @@ const selectItemMenu = (event: Event) => {
     z-index: 1;
     cursor: pointer;
     transition: font-weight 0.2s ease-out;
+
+    @media(--sm-viewport) {
+        width: 80px;
+    }
+
 }
 
 .item__textSelected {
@@ -113,7 +145,7 @@ const selectItemMenu = (event: Event) => {
     height: inherit;
     z-index: -1;
     background-color: var(--color-green-100);
-    transform: translateX(v-bind(BackgroundXItemSelect));
+    transform: translateX(v-bind(translateXItem));
 }
 
 .util__bordes {
