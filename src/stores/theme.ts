@@ -1,9 +1,13 @@
-import { ref, computed } from 'vue'
+import { reactive, readonly } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useTheme = defineStore('theme', () => {
-  const color = ref('#00dc82') 
-  const colorIcon = computed(() => color.value )
+  const _colorsIcon = reactive({
+    main: '#00dc82',
+    secondary: '#FFFFFF'
+  })
 
-  return { colorIcon }
+  const colorsIcon = readonly(_colorsIcon)
+
+  return { colorsIcon }
 })
