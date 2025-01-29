@@ -5,7 +5,7 @@ defineProps<{
     cursorType: string,
 }>();
 
-const storeTheme = useTheme()
+const { colorsIcon } = useTheme()
 
 
 </script>
@@ -13,10 +13,14 @@ const storeTheme = useTheme()
 
 <template>
     <aside :class="$style.aside">
-        <div :class="$style.aside__header">
-            <Icon icon="mingcute:user-4-fill" style="font-size: 2rem;"  :color="storeTheme.colorIcon" />
-        </div>
-        <hr @mousedown="$emit('resizeAsideLamda')" :class="{ [$style.aside__hr_active]: cursorType !== 'auto' }">
+        <header :class="$style.aside__header">
+            <div :class="$style?.['header__content-icon']">
+                <Icon icon="mingcute:user-4-fill" width="32" height="32" :color="colorsIcon.main" />
+            </div>
+            <p>nombre del usruario</p>
+            <Icon icon="material-symbols:menu-rounded" width="32" height="32" :color="colorsIcon.secondary" />
+        </header>
+        <hr @mousedown="$emit('resizeAsideLamda')" :class="{ [$style.aside__hr_active]: cursorType !== 'auto' }" />
     </aside>
 </template>
 
@@ -46,10 +50,27 @@ const storeTheme = useTheme()
 }
 
 .aside__header {
+    display: flex;
+    align-items: center;
     width: 100%;
     height: 80px;
     padding: 6px;
     background-color: var(--color-blue-100);
+
+
+    & :where(p) {
+        display: inline;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 0 12px;
+    }
+}
+
+.header__content-icon {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
 }
 
 .aside__hr_active {
