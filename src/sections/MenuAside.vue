@@ -15,12 +15,14 @@ const { colorsIcon } = useTheme()
     <aside :class="$style.aside">
         <header :class="$style.aside__header">
             <div :class="$style?.['header__content-icon']">
-                <Icon icon="mingcute:user-4-fill" width="32" height="32" :color="colorsIcon.main" />
+                <Icon icon="mingcute:user-4-fill" width="100%" height="100%" :color="colorsIcon.main" />
             </div>
             <p>nombre del usruario</p>
-            <Icon icon="material-symbols:menu-rounded" width="32" height="32" :color="colorsIcon.secondary" />
+            <div :class="$style?.['header__content-icon']">
+                <Icon icon="material-symbols:menu-rounded" width="100%" height="100%" :color="colorsIcon.secondary" />
+            </div>
         </header>
-        <hr @mousedown="$emit('resizeAsideLamda')" :class="{ [$style.aside__hr_active]: cursorType !== 'auto' }" />
+        <hr @mousedown="$emit('resizeAsideLamda')" :class="{ [$style.aside__hr_active]: cursorType !== 'auto'}" />
     </aside>
 </template>
 
@@ -33,18 +35,18 @@ const { colorsIcon } = useTheme()
     grid-area: aside;
 
     &> :where(hr) {
+        position: relative;
         margin: 0;
-        cursor: col-resize;
-        width: 2px;
-        background-color: var(--color-gray-300);
-        border: 0;
         padding: 0;
+        border: 1px solid transparent;
+        cursor: col-resize;
+        background-color: var(--color-gray-300);
         transition: background 1s;
 
         &:hover {
             width: 3px;
             cursor: col-resize;
-            background-color: var(--color-green-100);
+            border-color:var(--color-green-100);
         }
     }
 }
@@ -59,17 +61,18 @@ const { colorsIcon } = useTheme()
 
 
     & :where(p) {
-        display: inline;
+        padding: 0 12px; 
         text-overflow: ellipsis;
         white-space: nowrap;
+        word-wrap: break-word;
         overflow: hidden;
-        padding: 0 12px;
+        pointer-events: none;
     }
 }
 
 .header__content-icon {
     display: inline-block;
-    width: 32px;
+    min-width: 32px;
     height: 32px;
 }
 

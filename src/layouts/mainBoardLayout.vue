@@ -24,7 +24,7 @@ const mouseUpLamda = () => {
 
 <template>
     <div ref="element" :class="$style.layout" @mouseup="mouseUpLamda">
-        <MenuAside @resize-aside-lamda="resizeAsideLamda" :cursor-type="cursorType"   />
+        <MenuAside @resize-aside-lamda="resizeAsideLamda" :cursor-type="cursorType" />
         <main :class="$style.main">
 
         </main>
@@ -34,7 +34,7 @@ const mouseUpLamda = () => {
 <style lang="postcss" module>
 .layout {
     display: grid;
-    grid-template-columns: clamp(200px, v-bind(widthAsideMenu), 40%) 1fr;
+    grid-template-columns: clamp(150px, v-bind(widthAsideMenu), 40%) 1fr;
     grid-template-rows: 100vh;
     grid-template-areas: "aside main";
     cursor: v-bind(cursorType);
