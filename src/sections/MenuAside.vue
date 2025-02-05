@@ -19,7 +19,7 @@ const { colorsIcon } = useTheme()
             </div>
             <p>nombre del usruario</p>
             <div :class="$style?.['header__content-icon']">
-                <Icon icon="material-symbols:menu-rounded" width="100%" height="100%" :color="colorsIcon.secondary" />
+                <Icon icon="majesticons:menu-expand-left" width="100%" height="100%" :color="colorsIcon.secondary" />
             </div>
         </header>
         <hr @mousedown="$emit('resizeAsideLamda')" :class="{ [$style.aside__hr_active]: cursorType !== 'auto'}" />
