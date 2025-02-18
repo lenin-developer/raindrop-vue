@@ -1,25 +1,23 @@
 <script lang="ts" setup>
 import { useRouter } from 'vue-router';
-import SocialMediaButton from '@/components/socialMediaButton/SocialMediaButton.vue';
+import {
+  SocialMediaButton,
+  HrCustom,
+  InputBase,
+  ButtonBase
+} from '@/components';
 
-import HrCustom from '@/components/hrCustom/HrCustom.vue'
-import InputBase from '@/components/inputBase/InputBase.vue'
-import ButtonBase from '@/components/buttonBase/ButtonBase.vue'
-
-import IconGoogle from '@/components/icons/IconGoogle.vue'
-import IconFacebook from '@/components/icons/IconFacebook.vue'
-import IconMail from '@/components/icons/IconMail.vue'
-import IconKey from '@/components/icons/IconKey.vue'
-import type { ItemSelect } from '@/types/ItemSelect';
+import {IconGoogle, IconFacebook, IconMail, IconKey} from '@/components/icons'
+import type { SwitchItem } from '../switchMenu/SwitchItem';
 
 const router = useRouter();
 
 const props = defineProps<{
-  session: ItemSelect
+  session: SwitchItem
 }>()
 
-const login = ()=> {
-  router.push({name: 'home'})
+const login = () => {
+  router.push({ name: 'home' })
 }
 
 
@@ -51,7 +49,7 @@ const login = ()=> {
       </template>
     </InputBase>
 
-    <ButtonBase @click="login" >  {{session?.text}} </ButtonBase>
+    <ButtonBase @click="login"> {{ session?.text }} </ButtonBase>
 
   </form>
   <!-- </div> -->
@@ -88,9 +86,9 @@ const login = ()=> {
 .colorIcon {
   zoom: 0.6;
 
-  & > path {
+  &>path {
     fill: var(--color-green-100);
-  } 
+  }
 }
 
 .wrapperInputIcons {

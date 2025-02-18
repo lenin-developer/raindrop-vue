@@ -1,13 +1,11 @@
 <script lang="ts" setup>
 import { ref, type Ref } from 'vue';
 import SessionLayout from '@/layouts/SessionLayout.vue'
-import SwichMenu from '@/components/swichMenu/SwichMenu.vue'
-import type { ItemSelect } from '@/types/ItemSelect';
-import SessionForm from '@/components/SessionForm/SessionForm.vue';
-import LoginForm from '@/components/loginForm/LoginForm.vue';
+import type { SwitchItem } from '@/components/switchMenu/SwitchItem';
+import { LoginForm, SessionForm, SwichMenu } from '@/components';
 
 
-const items: ItemSelect[] = [
+const items: SwitchItem[] = [
   {
     text: 'Login',
     id: 1
@@ -18,7 +16,7 @@ const items: ItemSelect[] = [
   }
 ]
 
-const loginOrSignIn = ref({ ...items?.[0] }) as Ref<ItemSelect>;
+const loginOrSignIn = ref({ ...items?.[0] }) as Ref<SwitchItem>;
 
 
 

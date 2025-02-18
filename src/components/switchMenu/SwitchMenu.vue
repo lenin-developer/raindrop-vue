@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 import { onMounted, onUnmounted, ref } from 'vue'
 import type { ModelRef, Ref } from 'vue'
-import type { ItemSelect } from '@/types/ItemSelect';
+import type { SwitchItem } from './SwitchItem';
 
 const { items } = defineProps<{
-    items: ItemSelect[],
+    items: SwitchItem[],
 }>()
 
-const itemSelect = defineModel() as ModelRef<ItemSelect>;
+const itemSelect = defineModel() as ModelRef<SwitchItem>;
 
 const translateXItem = ref('0px') as Ref<string>;
 const indexItemSelected = ref(0) as Ref<number>;
