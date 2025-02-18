@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import SessionView from '../views/SessionView.vue'
+import SessionView from '../views/session/SessionView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,7 +12,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('@/layouts/mainBoardLayout.vue')
+      component: () => import('@/layouts/HomeLayout.vue')
     }
   ]
 })

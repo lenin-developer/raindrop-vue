@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import MenuAside from '@/sections/MenuAside.vue';
+import MenuAside from '@/sections/home/MenuAside/MenuAside.vue';
 
 const widthAsideMenu = ref('300px');
 const cursorType = ref('auto');
@@ -26,7 +26,6 @@ const mouseUpLamda = () => {
     <div ref="element" :class="$style.layout" @mouseup="mouseUpLamda">
         <MenuAside @resize-aside-lamda="resizeAsideLamda" :cursor-type="cursorType" />
         <main :class="$style.main">
-
         </main>
     </div>
 </template>
@@ -34,7 +33,7 @@ const mouseUpLamda = () => {
 <style lang="postcss" module>
 .layout {
     display: grid;
-    grid-template-columns: clamp(150px, v-bind(widthAsideMenu), 40%) 1fr;
+    grid-template-columns: clamp(150px, v-bind(widthAsideMenu), 425px) 1fr;
     grid-template-rows: 100vh;
     grid-template-areas: "aside main";
     cursor: v-bind(cursorType);

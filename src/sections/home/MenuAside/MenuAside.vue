@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import HeaderAside from "./components/HeaderAside.vue";
+import HeaderAside from "./components/headerAside/HeaderAside.vue";
 defineProps<{
     cursorType: string,
 }>();

@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { ref, type Ref } from 'vue';
 import SessionLayout from '@/layouts/SessionLayout.vue'
-import SessionContainer from '@/components/sessionContainer/SessionContainer.vue'
-import LoginForm from '@/components/loginForm/LoginForm.vue'
 import SwichMenu from '@/components/swichMenu/SwichMenu.vue'
 import type { ItemSelect } from '@/types/ItemSelect';
+import SessionForm from '@/components/SessionForm/SessionForm.vue';
+import LoginForm from '@/components/loginForm/LoginForm.vue';
 
 
 const items: ItemSelect[] = [
@@ -26,14 +26,14 @@ const loginOrSignIn = ref({ ...items?.[0] }) as Ref<ItemSelect>;
 
 <template>
   <SessionLayout>
-    <SessionContainer>
+    <SessionForm>
       <template v-slot:menu>
         <SwichMenu :items="items" v-model="loginOrSignIn" />
       </template>
       <template v-slot:form>
         <LoginForm :session="loginOrSignIn" />
       </template>
-    </SessionContainer>
+    </SessionForm>
   </SessionLayout>
 </template>
 
