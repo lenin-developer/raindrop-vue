@@ -1,5 +1,9 @@
 <script setup lang='ts'>
+import { inject } from 'vue';
+import { PROVIDER_SHOW_PANEL, type TypeSetResizePanel } from "@/consts/keys/provider";
 import { Icon } from "@iconify/vue";
+
+const  showPanel = inject<TypeSetResizePanel>(PROVIDER_SHOW_PANEL)!;
 
 </script>
 
@@ -9,7 +13,7 @@ import { Icon } from "@iconify/vue";
             <Icon icon="mingcute:user-4-fill" width="100%" height="100%" :class='$style["util__icon-user"]' />
         </span>
         <p>nombre del usruario</p>
-        <button  :class="$style?.['header__content-icon']">
+        <button @click="showPanel" :class="$style?.['header__content-icon']">
             <Icon icon="majesticons:menu-expand-left" width="100%" height="100%"
                 :class='$style["util__icon-show-menu"]' />
         </button>

@@ -1,19 +1,27 @@
 <script setup lang="ts">
-import { ref, provide } from 'vue';
+import { ref, provide, reactive } from 'vue';
 import type { Ref } from 'vue';
 import PanelMenu from '@/sections/home/panelMenu/PanelMenu.vue';
 import { PROVIDER_SHOW_PANEL } from '@/consts/keys/provider';
 
-const widthPanel = ref('300px') as Ref<string>;
+type TypeWidthPanel = {
+    min: string,
+    ideal: string
+    timeTransition: string
+}
+
+const initWidthPanel: TypeWidthPanel = {
+    min: '200px',
+    ideal: '300px',
+    timeTransition: '0.0s'
+}
+
+const widthPanel = reactive(initWidthPanel) as TypeWidthPanel;
 const cursorType = ref('auto') as Ref<string>;
 const Panelelement = ref() as Ref<HTMLDivElement>;
 
-
-provide(PROVIDER_SHOW_PANEL, widthPanel);
-
-
 const resizePanel = (e: MouseEvent) => {
-    widthPanel.value = `${e?.clientX}px`
+    widthPanel.ideal = `${e?.clientX}px`
 }
 
 const activeResizePanel = () => {
@@ -26,6 +34,20 @@ const stopResizePanel = () => {
     cursorType.value = 'auto';
 }
 
+const showPanel = () => {
+    if (widthPanel.min !== '0px') { // ocultar panel
+        widthPanel.min = '0px';
+        widthPanel.ideal = '0px';
+        widthPanel.timeTransition = '0.2s'
+    } else { // mostrar panel
+        widthPanel.min = initWidthPanel.min
+        widthPanel.ideal = initWidthPanel.ideal
+        widthPanel.timeTransition = initWidthPanel.timeTransition
+    }
+}
+
+provide(PROVIDER_SHOW_PANEL, showPanel);
+
 </script>
 
 <template>
@@ -36,13 +58,16 @@ const stopResizePanel = () => {
     </div>
 </template>
 
+
 <style lang="postcss" module>
+
 .layout {
     display: grid;
-    grid-template-columns: clamp(150px, v-bind(widthPanel), 425px) 1fr;
+    grid-template-columns: clamp(v-bind(widthPanel.min), v-bind(widthPanel.ideal), 425px) 1fr;
     grid-template-rows: 100vh;
     grid-template-areas: "aside main";
     cursor: v-bind(cursorType);
+    transition: v-bind(widthPanel.timeTransition) linear;
 
     @media (--md-viewport) {
         grid-template-columns: 0px 1fr;
