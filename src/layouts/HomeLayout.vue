@@ -1,30 +1,34 @@
 <script setup>
 import { ref } from 'vue';
-import MenuAside from '@/sections/home/MenuAside/MenuAside.vue';
+import PanelMenu from '@/sections/home/panelMenu/PanelMenu.vue';
 
 const widthAsideMenu = ref('300px');
 const cursorType = ref('auto');
 const element = ref(null)
 
-const resizeAsideLamda = () => {
-    element.value.addEventListener('mousemove', mouseMoveLamda);
-    cursorType.value = 'col-resize';
-}
 
-const mouseMoveLamda = (e) => {
+//provide(KEY_NUM, widthAsideMenu );
+
+
+const resizePanel = (e) => {
     widthAsideMenu.value = `${e?.clientX}px`
 }
 
-const mouseUpLamda = () => {
-    element.value.removeEventListener('mousemove', mouseMoveLamda);
+const activeResixePanel = () => {
+    element.value.addEventListener('mousemove', resizePanel);
+    cursorType.value = 'col-resize';
+}
+
+const stopResizePanel = () => {
+    element.value.removeEventListener('mousemove', resizePanel);
     cursorType.value = 'auto';
 }
 
 </script>
 
 <template>
-    <div ref="element" :class="$style.layout" @mouseup="mouseUpLamda">
-        <MenuAside @resize-aside-lamda="resizeAsideLamda" :cursor-type="cursorType" />
+    <div ref="element" :class="$style.layout" @mouseup="stopResizePanel">
+        <PanelMenu @active-resixe-panel="activeResixePanel" :cursor-type="cursorType" />
         <main :class="$style.main">
         </main>
     </div>

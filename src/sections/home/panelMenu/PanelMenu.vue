@@ -1,9 +1,16 @@
 <script setup lang="ts">
-import HeaderAside from "./components/headerAside/HeaderAside.vue";
+import HeaderPanel from "./components/HeaderPanel/HeaderPanel.vue";
 defineProps<{
     cursorType: string,
 }>();
 
+const emit = defineEmits<{
+    activeResixePanel: [],
+}>();
+
+const handleActiveResixePanel = () => {
+    emit('activeResixePanel')
+}
 
 </script>
 
@@ -11,12 +18,12 @@ defineProps<{
 <template>
     <div :class="$style?.['wrapper-aside']">
         <aside :class='$style?.aside'>
-            <HeaderAside />
+            <HeaderPanel />
             <ul>
 
             </ul>
         </aside>
-        <hr @mousedown="$emit('resizeAsideLamda')"
+        <hr @mousedown="handleActiveResixePanel"
             :class="[{ [$style.aside__hr_active]: cursorType !== 'auto' }, $style['hr-resize']]" />
     </div>
 </template>

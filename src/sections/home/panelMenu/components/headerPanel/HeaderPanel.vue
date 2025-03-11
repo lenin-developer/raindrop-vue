@@ -9,10 +9,10 @@ import { Icon } from "@iconify/vue";
             <Icon icon="mingcute:user-4-fill" width="100%" height="100%" :class='$style["util__icon-user"]' />
         </span>
         <p>nombre del usruario</p>
-        <span :class="$style?.['header__content-icon']">
+        <button  :class="$style?.['header__content-icon']">
             <Icon icon="majesticons:menu-expand-left" width="100%" height="100%"
                 :class='$style["util__icon-show-menu"]' />
-        </span>
+        </button>
     </header>
 </template>
 
@@ -42,6 +42,12 @@ import { Icon } from "@iconify/vue";
     width: 32px;
     min-width: 32px;
     height: 32px;
+
+    padding: 0px;
+    margin: 0px;
+    background-color: transparent;
+    border: none;
+
 }
 
 .util__icon-user {
