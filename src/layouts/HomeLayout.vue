@@ -1,21 +1,23 @@
-<script setup>
-import { ref } from 'vue';
+<script setup lang="ts">
+import { ref, provide } from 'vue';
+import type { Ref } from 'vue';
 import PanelMenu from '@/sections/home/panelMenu/PanelMenu.vue';
+import { PROVIDER_SHOW_PANEL } from '@/consts/keys/provider';
 
-const widthAsideMenu = ref('300px');
-const cursorType = ref('auto');
-const element = ref(null)
-
-
-//provide(KEY_NUM, widthAsideMenu );
+const widthAsideMenu = ref('300px') as Ref<string>;
+const cursorType = ref('auto') as Ref<string>;
+const element = ref() as Ref<HTMLDivElement>;
 
 
-const resizePanel = (e) => {
+provide(PROVIDER_SHOW_PANEL, widthAsideMenu);
+
+
+const resizePanel = (e: MouseEvent) => {
     widthAsideMenu.value = `${e?.clientX}px`
 }
 
 const activeResixePanel = () => {
-    element.value.addEventListener('mousemove', resizePanel);
+    element?.value?.addEventListener('mousemove', resizePanel);
     cursorType.value = 'col-resize';
 }
 
