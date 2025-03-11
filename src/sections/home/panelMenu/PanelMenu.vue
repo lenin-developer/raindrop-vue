@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import HeaderPanel from "./components/HeaderPanel/HeaderPanel.vue";
+import HeaderPanel from "./components/headerPanel/HeaderPanel.vue";
 defineProps<{
     cursorType: string,
 }>();
