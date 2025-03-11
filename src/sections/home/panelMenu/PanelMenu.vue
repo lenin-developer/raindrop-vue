@@ -5,11 +5,11 @@ defineProps<{
 }>();
 
 const emit = defineEmits<{
-    activeResixePanel: [],
+    activeResizePanel: [],
 }>();
 
-const handleActiveResixePanel = () => {
-    emit('activeResixePanel')
+const handleActiveResizePanel = () => {
+    emit('activeResizePanel')
 }
 
 </script>
@@ -23,7 +23,7 @@ const handleActiveResixePanel = () => {
 
             </ul>
         </aside>
-        <hr @mousedown="handleActiveResixePanel"
+        <hr @mousedown="handleActiveResizePanel"
             :class="[{ [$style.aside__hr_active]: cursorType !== 'auto' }, $style['hr-resize']]" />
     </div>
 </template>
