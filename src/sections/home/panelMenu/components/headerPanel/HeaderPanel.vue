@@ -13,7 +13,7 @@ const  showPanel = inject<TypeSetResizePanel>(PROVIDER_SHOW_PANEL)!;
             <Icon icon="mingcute:user-4-fill" width="100%" height="100%" :class='$style["util__icon-user"]' />
         </span>
         <p>nombre del usruario</p>
-        <button @click="showPanel" :class="$style?.['header__content-icon']">
+        <button @click="showPanel" :class="$style?.['header__content-icon']" aria-label="show panel">
             <Icon icon="majesticons:menu-expand-left" width="100%" height="100%"
                 :class='$style["util__icon-show-menu"]' />
         </button>
@@ -31,6 +31,7 @@ const  showPanel = inject<TypeSetResizePanel>(PROVIDER_SHOW_PANEL)!;
     background-color: var(--color-blue-100);
 
     & :where(p) {
+        user-select: none;
         padding: 0 12px;
         text-overflow: ellipsis;
         white-space: nowrap;
