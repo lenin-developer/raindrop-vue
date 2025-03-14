@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { ref, provide, reactive } from 'vue';
 import type { Ref } from 'vue';
-import PanelMenu from '@/sections/home/panelMenu/PanelMenu.vue';
+//----
 import { PROVIDER_SHOW_PANEL } from '@/consts/keys/provider';
+
 
 type TypeWidthPanel = {
     min: string,
@@ -19,6 +20,12 @@ const initWidthPanel: TypeWidthPanel = {
 const widthPanel = reactive(initWidthPanel) as TypeWidthPanel;
 const cursorType = ref('auto') as Ref<string>;
 const Panelelement = ref() as Ref<HTMLDivElement>;
+
+defineSlots<{
+    panelMenu(props: { activeResizePanel: ()=> void, cursorType: string }): any,
+    headerOpcion(props:{}):any,
+    mainContent(props:{}):any
+}>()
 
 const resizePanel = (e: MouseEvent) => {
     widthPanel.ideal = `${e?.clientX}px`
@@ -46,21 +53,30 @@ const showPanel = () => {
     }
 }
 
-provide(PROVIDER_SHOW_PANEL, showPanel);
+provide(PROVIDER_SHOW_PANEL, { showPanel });
 
 </script>
 
 <template>
     <div ref="Panelelement" :class="$style.layout" @mouseup="stopResizePanel">
-        <PanelMenu @active-resize-panel="activeResizePanel" :cursor-type="cursorType" />
+        <aside :class="$style?.['wrapper-aside']">
+            <slot name="panelMenu" :activeResizePanel="activeResizePanel" :cursorType="cursorType"></slot>
+        </aside>
+
         <main :class="$style.main">
+            <header>
+                <slot name="headerOpcion" />
+            </header>
+            <section>
+                <slot name="mainContent" />
+            </section>
         </main>
+
     </div>
 </template>
 
 
 <style lang="postcss" module>
-
 .layout {
     display: grid;
     grid-template-columns: clamp(v-bind(widthPanel.min), v-bind(widthPanel.ideal), 425px) 1fr;
@@ -73,6 +89,13 @@ provide(PROVIDER_SHOW_PANEL, showPanel);
         grid-template-columns: 0px 1fr;
         grid-template-areas: "aside main";
     }
+}
+
+.wrapper-aside {
+    grid-area: aside;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-gray-500);
 }
 
 .main {

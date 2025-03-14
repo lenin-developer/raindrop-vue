@@ -3,7 +3,7 @@ import { inject } from 'vue';
 import { PROVIDER_SHOW_PANEL, type TypeSetResizePanel } from "@/consts/keys/provider";
 import { Icon } from "@iconify/vue";
 
-const  showPanel = inject<TypeSetResizePanel>(PROVIDER_SHOW_PANEL)!;
+const  {showPanel} = inject<TypeSetResizePanel>(PROVIDER_SHOW_PANEL)!;
 
 </script>
 

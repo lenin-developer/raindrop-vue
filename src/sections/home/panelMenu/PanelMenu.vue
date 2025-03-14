@@ -1,48 +1,39 @@
 <script setup lang="ts">
 import HeaderPanel from "./components/headerPanel/HeaderPanel.vue";
+import PanelMenuLayout from "./layout/PanelMenuLayout.vue";
 defineProps<{
     cursorType: string,
 }>();
 
-const emit = defineEmits<{
+defineEmits<{
     activeResizePanel: [],
 }>();
-
-const handleActiveResizePanel = () => {
-    emit('activeResizePanel')
-}
 
 </script>
 
 
 <template>
-    <div :class="$style?.['wrapper-aside']">
-        <aside :class='$style?.aside'>
+    <PanelMenuLayout>
+        <template #panel-header>
             <HeaderPanel />
+        </template>
+        <template #panel-opcion>
+            <h2>opciones</h2>
+        </template>
+        <template #pabel-list>
             <ul>
-
+                <li>aa</li>
             </ul>
-        </aside>
-        <hr @mousedown="handleActiveResizePanel"
-            :class="[{ [$style.aside__hr_active]: cursorType !== 'auto' }, $style['hr-resize']]" />
-    </div>
+        </template>
+        <template #panel-bar>
+            <hr @mousedown="$emit('activeResizePanel')"
+                :class="[{ [$style.aside__hr_active]: cursorType !== 'auto' }, $style['hr-resize']]" />
+        </template>
+    </PanelMenuLayout>
 </template>
 
 
 <style lang="postcss" module>
-.wrapper-aside {
-    grid-area: aside;
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--color-gray-500);
-
-    & :where(aside) {
-        width: 100%;
-    }
-
-}
-
-
 .hr-resize {
     position: relative;
     margin: 0;
