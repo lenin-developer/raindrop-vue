@@ -2,11 +2,12 @@
 import HeaderPanel from "./components/headerPanel/HeaderPanel.vue";
 import PanelMenuLayout from "./layout/PanelMenuLayout.vue";
 defineProps<{
-    cursorType: string,
+    cursorType: string ,
 }>();
 
 defineEmits<{
     activeResizePanel: [],
+    stopResizePanel: []
 }>();
 
 </script>
