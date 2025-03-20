@@ -1,63 +1,37 @@
 .util_span_conten_icon {
-    display: inline-block;
-    width: 32px;
-    min-width: 32px;
-    height: 32px;
+  display: inline-block;
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
 
-    padding: 0px;
-    margin: 0px;
-    background-color: transparent;
-    border: none;
-}
-.util_bg_green {
-    background-color: var(--color-green-100);
+  padding: 0px;
+  margin: 0px;
+  background-color: transparent;
+  border: none;
 }
 
 .util_color-green {
-    color: var(--color-green-100);
+  color: var(--color-green-100);
 }
 
-.util_bg_green-hover {
-    background-color: var(--color-green-100);
-
-    &:hover {
-        background-color: var(--color-gray-400) ;
-    }
-}
-
-.util_bg_gray {
-    background-color: var(--color-gray-400) ;
-}
-
-.util_color-gray {
-    color: var(--color-gray-400);
-}
-
-.util_bg_gray-hover {
-    background-color: var(--color-gray-400);
-
-    &:hover {
-        background-color: var(--color-green-100); 
-    }
-}
 
 .util_btn_content_icon {
-    display: inline-block;
-    width: 32px;
-    min-width: 32px;
-    height: 32px;
+  display: inline-block;
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
 
-    padding: 0px;
-    margin: 0px;
-    background-color: transparent;
-    border: none;
+  padding: 0px;
+  margin: 0px;
+  background-color: transparent;
+  border: none;
 
-    & :where(svg){
-        cursor: pointer;
-        color: #FFFFFF;
-    
-        &:hover {
-            color: #00dc82;
-        }
+  & :where(svg) {
+    cursor: pointer;
+    color: #ffffff;
+
+    &:hover {
+      color: #00dc82;
     }
+  }
 }
