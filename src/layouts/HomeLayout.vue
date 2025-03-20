@@ -76,12 +76,12 @@ provide(PROVIDER_SHOW_PANEL, { showPanel });
 
 <template>
     <div ref="Panelelement" :class="$style.layout" @mouseup.capture="stopResizePanel">
-        <aside :class="$style?.['wrapper-aside']">
+        <aside :class="$style?.layout__panelMenu">
             <slot name="panelMenu" :activeResizePanel="activeResizePanel" :cursorType="cursorType"
                 :stopResizePanel="stopResizePanel"></slot>
         </aside>
 
-        <main :class="$style.main">
+        <main :class="$style.layout__main">
             <header>
                 <slot name="headerOpcion" :showPanel="showPanel" :isPanelOpen="isPanelOpen" />
             </header>
@@ -109,14 +109,14 @@ provide(PROVIDER_SHOW_PANEL, { showPanel });
     }
 }
 
-.wrapper-aside {
+.layout__panelMenu{
     grid-area: aside;
     display: flex;
     justify-content: space-between;
     background-color: var(--color-gray-500);
 }
 
-.main {
+.layout__main {
     background-color: var(--color-background-main);
     grid-area: main;
 }
