@@ -9,7 +9,7 @@ const  {showPanel} = inject<TypeSetResizePanel>(PROVIDER_SHOW_PANEL)!;
 
 <template>
     <header :class="$style?.['header-aside']">
-        <span :class="$style['header__content-icon']" >
+        <span class="util_span_conten_icon" >
             <Icon icon="mingcute:user-4-fill" width="100%" height="100%" class="util_color-green" />
         </span>
         <p>nombre del usruario</p>
