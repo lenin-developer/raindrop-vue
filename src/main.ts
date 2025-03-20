@@ -2,6 +2,7 @@ import './css/colors.css'
 import './css/opacity.css'
 import './css/global.css'
 import './css/responsive.css'
+import  './css/utilities/utils.css';
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
