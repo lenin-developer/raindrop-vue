@@ -9,13 +9,12 @@ const  {showPanel} = inject<TypeSetResizePanel>(PROVIDER_SHOW_PANEL)!;
 
 <template>
     <header :class="$style?.['header-aside']">
-        <span :class="$style?.['header__content-icon']">
-            <Icon icon="mingcute:user-4-fill" width="100%" height="100%" :class='$style["util__icon-user"]' />
+        <span  class="util_span_conten_icon" >
+            <Icon icon="mingcute:user-4-fill" width="100%" height="100%" class="util_bg_green" />
         </span>
         <p>nombre del usruario</p>
-        <button @click="showPanel" :class="$style?.['header__content-icon']" aria-label="show panel">
-            <Icon icon="majesticons:menu-expand-left" width="100%" height="100%"
-                :class='$style["util__icon-show-menu"]' />
+        <button @click="showPanel" class="util_btn_content_icon" aria-label="show panel">
+            <Icon icon="majesticons:menu-expand-left" width="100%" height="100%" />
         </button>
     </header>
 </template>
@@ -57,14 +56,5 @@ const  {showPanel} = inject<TypeSetResizePanel>(PROVIDER_SHOW_PANEL)!;
 
 .util__icon-user {
     color: #00dc82;
-}
-
-.util__icon-show-menu {
-    cursor: pointer;
-    color: #FFFFFF;
-
-    &:hover {
-        color: #00dc82;
-    }
 }
 </style>
