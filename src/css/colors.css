@@ -7,8 +7,12 @@
   --color-gray-400: #F1F5F9;
   --color-gray-500: #131A30;
 
-  --color-green-100: #00dc82;
   --color-white-100: #ffffff;
+  --color-gray-boder-100:#324158;
+  --color-gray-overlay: #32415854;
+
+  --color-green-100: #00dc82;
+  --color-green-200: #0CA768;
 
   --color-blue-100: #1E293B;
 

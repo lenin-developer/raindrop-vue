@@ -24,14 +24,14 @@
   padding: 0px;
   margin: 0px;
   background-color: transparent;
-  border: none;
+  border: none; 
 
   & :where(svg) {
-    cursor: pointer;
     color: #ffffff;
 
     &:hover {
       color: #00dc82;
+      cursor: pointer;
     }
   }
 }
