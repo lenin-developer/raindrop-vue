@@ -3,6 +3,8 @@ import { Icon } from "@iconify/vue/dist/iconify.js";
 import HeaderPanel from "./components/headerPanel/HeaderPanel.vue";
 import PanelMenuLayout from "./layout/PanelMenuLayout.vue";
 import ButtonBase from '@/components/buttonBase/ButtonBase.vue';
+import ModalAddGroup from "@/components/modalAddGroup/ModalAddGroup.vue";
+import { ref } from "vue";
 defineProps<{
     cursorType: string,
 }>();
@@ -11,6 +13,12 @@ defineEmits<{
     activeResizePanel: [],
     stopResizePanel: []
 }>();
+
+const modalAddGroup = ref<InstanceType<typeof ModalAddGroup>>();
+
+const openModal = () => {
+    modalAddGroup.value?.openModal()
+}
 
 </script>
 
@@ -21,13 +29,12 @@ defineEmits<{
             <HeaderPanel />
         </template>
         <template #panel-opcion>
-            <ButtonBase :class="$style.btn" aria-label="agregar categoria" >
+            <ButtonBase @click="openModal" :class="$style.btn" aria-label="agregar categoria">
                 <Icon icon="icons8:plus" width="100%" height="100%" class="util_color-green" />
             </ButtonBase>
         </template>
         <template #pabel-list>
             <ul>
-                <li>aa</li>
             </ul>
         </template>
         <template #panel-bar>
@@ -35,6 +42,7 @@ defineEmits<{
                 :class="[{ [$style.aside__hr_active]: cursorType !== 'auto' }, $style['hr-resize']]" />
         </template>
     </PanelMenuLayout>
+    <ModalAddGroup ref="modalAddGroup" />
 </template>
 
 
@@ -73,19 +81,20 @@ defineEmits<{
 
     & :where(svg) {
         height: 1.5rem;
-        & :where(path){
-        margin-top: 2px;
-        margin-bottom: 2px;
-        }
 
-        &:hover {
-            color: var(--color-background-main);
+        & :where(path) {
+            margin-top: 2px;
+            margin-bottom: 2px;
         }
     }
 
     &:hover {
         background-color: var(--color-green-100);
         border: 1px solid var(--color-background-main);
+
+        & :where(svg) {
+            color: var(--color-background-main);
+        }
     }
 }
 </style>
