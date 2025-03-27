@@ -1,7 +1,9 @@
 <script setup lang='ts'>
 import { ref, type Ref } from 'vue';
 import ModalBase, { } from '@/components/modalBase/ModalBase.vue';
-import { Icon } from '@iconify/vue/dist/iconify.js';
+import { Icon } from "@iconify/vue"
+import PanelIcons from '@/components/panelIcons/PanelIcons.vue';
+import InputBase from '@/components/inputBase/InputBase.vue';
 
 const modalData = ref() as Ref<InstanceType<typeof ModalBase>>;
 const showIcons = ref(false) as Ref<boolean>
@@ -30,8 +32,6 @@ const showSectionIcons = () => {
     showIcons.value = !showIcons.value;
 }
 
-
-
 </script>
 
 <template>
@@ -45,13 +45,13 @@ const showSectionIcons = () => {
             </header>
             <form :class="$style.modal_form">
                 <section :class="$style.form_section_input">
-                    <input v-model="nameGroup" type="text" name="name group" placeholder="name group">
+                     <InputBase v-model="nameGroup" placeholder="name group" />
                     <button type="button" @click="showSectionIcons" class="util_btn_content_icon" aria-label="add icon">
                         <Icon icon="mdi:folder-plus" width="100%" height="100%"></Icon>
                     </button>
                 </section>
-                <section v-if="showIcons" :class="$style.modal_section_icons">
-
+                <section>
+                    <PanelIcons :showIcons="showIcons"/>
                 </section>
                 <button type="button" @click="addNewGroup" :class="$style.form_btn_ok">Ok</button>
                 <button @click.prevent="closeModal" :class="$style.form_btn_cancel">Cancelar</button>
@@ -117,20 +117,7 @@ const showSectionIcons = () => {
 .form_section_input {
     display: flex;
     justify-content: space-between;
-
-    & :where(input) {
-        width: 90%;
-        padding: 8px 6px;
-        background-color: transparent;
-        border: none;
-        border-radius: 6px;
-        outline: 1px solid var(--color-gray-boder-100);
-        color: var(--color-gray-400);
-
-        &:focus {
-            outline-color: var(--color-green-100);
-        }
-    }
+    gap: 6px;
 }
 
 .form_btn_ok {
