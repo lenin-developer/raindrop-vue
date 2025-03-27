@@ -1,63 +1,31 @@
 <script setup lang="ts">
 import type { InputHTMLAttributes } from 'vue'
-import IconMail from '../icons/IconMail.vue';
-defineOptions({ inheritAttrs: false });
+// defineOptions({ inheritAttrs: false });
 
-type Props = {
-    label?: string,
-    id?: string,
-    classes?: string
-} & /* @vue-ignore */ Omit<InputHTMLAttributes, 'id'>;
+
+type Props =  & /* @vue-ignore */ InputHTMLAttributes;
 
 defineProps<Props>()
+const modelValue = defineModel<string>({ required: true })
 
 </script>
 
 <template>
-    <div :class="[$style.inputBase, classes]">
-        <div :class="$style.inputBase__sectionInf" >
-            <div :for="id?.toString()" v-if="$slots.icon"   >
-                <slot name="icon"></slot>
-            </div>
-            <label v-if="label" :for="id?.toString()" :class="$style.inputBase_label" :aria-label="label" >{{ label }}</label>
-        </div>
-
-        <input type="text" :id="id?.toString()" v-bind="$attrs" :class="$style.inputBase_input"  >
-    </div>
+    <input v-model="modelValue" type="text" :class="$style.inputBase" >
 </template>
 
 <style lang="postcss" module>
 .inputBase {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
     width: 100%;
-}
-
-.inputBase__sectionInf {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.inputBase__sectionInf > div {
-    height: 1rem;
-    display: flex;
-    align-items: center;
-}
-
-.inputBase_label {
-    font-weight: 200;
-}
-
-.inputBase_input {
-    padding: 8px;
+    padding: 8px 6px;
+    background-color: transparent;
     border: none;
-    outline: 3px solid transparent;
     border-radius: 6px;
-}
+    outline: 1px solid var(--color-gray-boder-100);
+    color: var(--color-gray-400);
 
-.inputBase_input:focus {
-    outline: 3px solid var(--color-green-100);
+    &:focus {
+        outline-color: var(--color-green-100);
+    }
 }
 </style>
