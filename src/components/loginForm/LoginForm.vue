@@ -9,6 +9,7 @@ import {
 
 import {IconGoogle, IconFacebook, IconMail, IconKey} from '@/components/icons'
 import type { SwitchItem } from '../switchMenu/SwitchItem';
+import InputLabel from '../inputLabel/InputLabel.vue';
 
 const router = useRouter();
 
@@ -35,19 +36,19 @@ const login = () => {
 
     <HrCustom text="OR" />
 
-    <InputBase label="Email" id="correo" :class="$style.InputBase" autocomplete="off">
+    <InputLabel label="Email" id="correo" :class="$style.InputBase" autocomplete="off">
       <template #icon>
         <IconMail :class="$style.colorIcon" />
       </template>
-    </InputBase>
+    </InputLabel>
 
 
 
-    <InputBase type="password" label="Password" id="password" :class="$style.InputBase" autocomplete="off">
+    <InputLabel type="password" label="Password" id="password" :class="$style.InputBase" autocomplete="off">
       <template #icon>
         <IconKey :class="$style.colorIcon" />
       </template>
-    </InputBase>
+    </InputLabel>
 
     <ButtonBase @click="login"> {{ session?.text }} </ButtonBase>
 
