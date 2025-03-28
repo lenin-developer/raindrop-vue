@@ -1,6 +1,7 @@
 @import url("./others/_index.css");
 
 @import url("./settings/_index.css");
+@import url("./responsive.css");
 @import url("./themes/default.css");
 
 @import url("./generic/_index.css");
