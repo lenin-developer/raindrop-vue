@@ -47,7 +47,7 @@ const showSectionIcons = () => {
                 <section :class="$style.form_section_input">
                      <InputBase v-model="nameGroup" placeholder="name group" />
                     <button type="button" @click="showSectionIcons" class="util_btn_content_icon" aria-label="add icon">
-                        <Icon icon="mdi:folder-plus" width="100%" height="100%"></Icon>
+                        <Icon icon="fontisto:nav-icon-grid-a" width="100%" height="100%"></Icon>
                     </button>
                 </section>
                 <section>
