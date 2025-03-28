@@ -55,11 +55,11 @@ const inputValue = ref('') as Ref<string> ;
 
 .inputBase_input {
     padding: 8px;
-    outline: 2px solid var(--color-gray-300);
+    outline: 2px solid var(--color-gray-transparent-100);
     border-radius: 6px;
 }
 
 .inputBase_input:focus {
-    outline: 2px solid var(--color-green-100);
+    outline: 2px solid var(--color-secondary);
 }
 </style>

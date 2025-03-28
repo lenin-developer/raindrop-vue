@@ -113,11 +113,11 @@ provide(PROVIDER_SHOW_PANEL, { showPanel });
     grid-area: aside;
     display: flex;
     justify-content: space-between;
-    background-color: var(--color-gray-500);
+    background-color: var(--color-blue-200);
 }
 
 .layout__main {
-    background-color: var(--color-background-main);
+    background-color: var(--color-primary);
     grid-area: main;
 }
 </style>

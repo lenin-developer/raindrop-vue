@@ -104,7 +104,7 @@ onBeforeMount(() => {
 
 .btn {
     &:hover {
-        outline: 1px solid var(--color-green-100);
+        outline: 1px solid var(--color-secondary);
     }
 }
 
@@ -112,7 +112,7 @@ onBeforeMount(() => {
     padding-right: 8px;
 
     & :where(svg) {
-        color: var(--color-green-100);
+        color: var(--color-secondary);
     }
 
 }

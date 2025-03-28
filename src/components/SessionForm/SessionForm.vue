@@ -18,7 +18,7 @@
   background-color: #020420ae;
   backdrop-filter: blur(8px);
   border-radius: 12px;
-  box-shadow: 0px 0px 0px 2px var(--color-green-100);
+  box-shadow: 0px 0px 0px 2px var(--color-secondary);
 
   @media(--md-viewport) {
     width: calc(100% - 20%);

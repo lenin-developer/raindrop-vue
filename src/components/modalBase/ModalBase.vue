@@ -37,7 +37,7 @@ defineExpose({
 
     &::backdrop {
         opacity: 0;
-        background-color: var(--color-gray-overlay);
+        background-color: var(--color-blue-transparent-100);
     }
 
     &[open] {

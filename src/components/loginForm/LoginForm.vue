@@ -62,7 +62,7 @@ const login = () => {
   width: 90%;
   height: 100%;
   background: #0f172a80;
-  box-shadow: 0px 0px 0px 0.5px var(--color-gray-300);
+  box-shadow: 0px 0px 0px 0.5px var(--color-gray-transparent-100);
   border-radius: 12px;
 }
 
@@ -88,7 +88,7 @@ const login = () => {
   zoom: 0.6;
 
   &>path {
-    fill: var(--color-green-100);
+    fill: var(--color-secondary);
   }
 }
 

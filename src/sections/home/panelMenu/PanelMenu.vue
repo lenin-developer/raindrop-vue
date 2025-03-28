@@ -53,26 +53,26 @@ const openModal = () => {
     padding: 0;
     border: 1px solid transparent;
     cursor: col-resize;
-    background-color: var(--color-gray-300);
+    background-color: var(--color-gray-transparent-100);
     transition: background 1s;
 
     &:hover {
         width: 3px;
         cursor: col-resize;
-        border-color: var(--color-green-100);
+        border-color: var(--color-secondary);
     }
 }
 
 .aside__hr_active {
     width: 3px;
     cursor: col-resize;
-    background-color: var(--color-green-100);
+    background-color: var(--color-secondary);
 }
 
 .btn {
     height: 30px;
-    background-color: var(--color-background-main);
-    border: 1px solid var(--color-green-100);
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-secondary);
     border-radius: 8px;
     padding-top: 3px;
     padding-bottom: 3px;
@@ -89,11 +89,11 @@ const openModal = () => {
     }
 
     &:hover {
-        background-color: var(--color-green-100);
-        border: 1px solid var(--color-background-main);
+        background-color: var(--color-secondary);
+        border: 1px solid var(--color-primary);
 
         & :where(svg) {
-            color: var(--color-background-main);
+            color: var(--color-primary);
         }
     }
 }

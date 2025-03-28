@@ -1,4 +1,5 @@
-import './css/colors.css'
+// import './css/colors.css' 
+import './css/themes/default.css';
 import './css/opacity.css'
 import './css/global.css'
 import './css/responsive.css'

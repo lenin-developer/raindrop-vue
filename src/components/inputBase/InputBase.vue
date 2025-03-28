@@ -29,11 +29,11 @@ const modelValue = defineModel<string>()
     background-color: transparent;
     border: none;
     border-radius: 6px;
-    outline: 1px solid var(--color-gray-boder-100);
-    color: var(--color-gray-400);
+    outline: 1px solid var(--color-gray-300);
+    color: var(--color-gray-100);
 
     &:focus {
-        outline-color: var(--color-green-100);
+        outline-color: var(--color-secondary);
     }
 }
 
@@ -44,10 +44,10 @@ const modelValue = defineModel<string>()
     padding: 4px 8px;
     display: flex;
     border-radius: 6px;
-    outline: 1px solid var(--color-gray-boder-100);
+    outline: 1px solid var(--color-gray-300);
 
     &:focus-within {
-        outline-color: var(--color-green-100);
+        outline-color: var(--color-secondary);
     }
 
     & :where(input) {

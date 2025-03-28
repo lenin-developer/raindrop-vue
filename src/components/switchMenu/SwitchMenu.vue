@@ -90,7 +90,7 @@ onUnmounted(() => {
     /* para que no rebace el ancho del contenedor padre */
     padding: 4px;
     margin: 0px;
-    outline: solid 1.5px var(--color-gray-300);
+    outline: solid 1.5px var(--color-gray-transparent-100);
     overflow-x: auto;
     /* para el desbordamiento del contenido */
     scrollbar-width: none;
@@ -144,7 +144,7 @@ onUnmounted(() => {
     position: absolute;
     height: inherit;
     z-index: -1;
-    background-color: var(--color-green-100);
+    background-color: var(--color-secondary);
     transform: translateX(v-bind(translateXItem));
 }
 

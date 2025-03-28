@@ -24,7 +24,7 @@ defineProps<{
     width: 100%;
     border: none;
     border-radius: 6px;
-    background-color: var(--color-gray-400);
+    background-color: var(--color-gray-100);
     cursor: pointer;
 }
 

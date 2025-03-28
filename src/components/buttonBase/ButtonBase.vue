@@ -30,7 +30,7 @@ defineProps<{
     outline: 0px;
     cursor: pointer;
     border-radius: 6px;
-    background-color: var(--color-green-100);
+    background-color: var(--color-secondary);
     color: var(--color-blue-100);
     font-weight: 800;
     font-size: 16px;

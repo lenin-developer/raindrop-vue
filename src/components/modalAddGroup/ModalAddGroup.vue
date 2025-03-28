@@ -69,9 +69,9 @@ const showSectionIcons = () => {
     flex-direction: column;
     gap: 24px;
     border-radius: 8px;
-    border: 1px solid var(--color-gray-boder-100);
-    outline: 1px solid var(--color-gray-boder-100);
-    background-color: var(--color-background-main);
+    border: 1px solid var(--color-gray-300);
+    outline: 1px solid var(--color-gray-300);
+    background-color: var(--color-primary);
 }
 
 .modal_header {
@@ -121,10 +121,10 @@ const showSectionIcons = () => {
 }
 
 .form_btn_ok {
-    background-color: var(--color-green-100);
+    background-color: var(--color-secondary);
 
     &:hover {
-        background-color: var(--color-green-200);
+        background-color: var(--color-green-100);
     }
 }
 
@@ -132,7 +132,7 @@ const showSectionIcons = () => {
     background-color: var(--color-white-100);
 
     &:hover {
-        outline: 1px solid var(--color-gray-100);
+        outline: 1px solid var(--color-gray-200);
     }
 }
 </style>
