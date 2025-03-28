@@ -1,17 +1,25 @@
 <script setup lang="ts">
 import type { InputHTMLAttributes } from 'vue'
-// defineOptions({ inheritAttrs: false });
+defineOptions({ inheritAttrs: false });
 
 
-type Props =  & /* @vue-ignore */ InputHTMLAttributes;
+type Props = & /* @vue-ignore */ InputHTMLAttributes;
 
 defineProps<Props>()
-const modelValue = defineModel<string>({ required: true })
+const modelValue = defineModel<string>()
 
 </script>
 
 <template>
-    <input v-model="modelValue" type="text" :class="$style.inputBase" >
+
+    <input v-if="!$slots.iconLeft && !$slots.iconRight" v-bind="$attrs" v-model="modelValue" type="text"
+        :class="$style.inputBase">
+
+    <div v-if="$slots.iconLeft || $slots.iconRight" :class="$style.wrapper">
+        <slot name="iconLeft"></slot>
+        <input v-bind="$attrs" v-model="modelValue" type="text" :class="$style.inputBase">
+        <slot name="iconRight"></slot>
+    </div>
 </template>
 
 <style lang="postcss" module>
@@ -26,6 +34,29 @@ const modelValue = defineModel<string>({ required: true })
 
     &:focus {
         outline-color: var(--color-green-100);
+    }
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 4px 8px;
+    display: flex;
+    border-radius: 6px;
+    outline: 1px solid var(--color-gray-boder-100);
+
+    &:focus-within {
+        outline-color: var(--color-green-100);
+    }
+
+    & :where(input) {
+        padding: 0px;
+        outline: none;
+
+        &:focus {
+            outline-color: none;
+        }
     }
 }
 </style>
