@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, type InputHTMLAttributes, type Ref } from 'vue'
-import InputBase from '@/components/inputBase/InputBase.vue';
+import {InputBase} from '@/ui/components';
 
 
 defineOptions({ inheritAttrs: false });

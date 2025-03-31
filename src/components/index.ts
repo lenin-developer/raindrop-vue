@@ -1,8 +1,0 @@
-export { default as ButtonBase } from "@/components/buttonBase/ButtonBase.vue"
-export { default as HrCustom } from "@/components/hrCustom/HrCustom.vue"
-export { default as InputBase } from "@/components/inputBase/InputBase.vue"
-export { default as LoginForm } from "@/components/loginForm/LoginForm.vue"
-export { default as SessionForm } from "@/components/sessionForm/SessionForm.vue"
-export { default as SocialMediaButton } from "@/components/socialMediaButton/SocialMediaButton.vue"
-export { default as SwichMenu } from "@/components/switchMenu/SwitchMenu.vue"
-export { default as WrapperInputIcons } from "@/components/wrapperInputIcons/WrapperInputIcons.vue"

@@ -2,7 +2,7 @@
 import { onBeforeMount, ref, watch } from 'vue';
 import type { Ref } from 'vue';
 import { Icon } from "@iconify/vue"
-import InputBase from '@/components/inputBase/InputBase.vue';
+import {InputBase} from '@/ui/components';
 
 
 const props = defineProps<{

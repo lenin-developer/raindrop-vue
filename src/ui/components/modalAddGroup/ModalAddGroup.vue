@@ -1,9 +1,8 @@
 <script setup lang='ts'>
 import { ref, type Ref } from 'vue';
-import ModalBase, { } from '@/components/modalBase/ModalBase.vue';
 import { Icon } from "@iconify/vue"
-import PanelIcons from '@/components/panelIcons/PanelIcons.vue';
-import InputBase from '@/components/inputBase/InputBase.vue';
+import {ModalBase, PanelIcons, InputBase } from '@/ui/components';
+
 
 const modalData = ref() as Ref<InstanceType<typeof ModalBase>>;
 const showIcons = ref(false) as Ref<boolean>

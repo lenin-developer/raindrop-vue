@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { ref, type Ref } from 'vue';
 import SessionLayout from '@/layouts/SessionLayout.vue'
-import type { SwitchItem } from '@/components/switchMenu/SwitchItem';
-import { LoginForm, SessionForm, SwichMenu } from '@/components';
+import { LoginForm, SessionForm, SwichMenu } from '@/ui/components';
+import type { SwitchItem } from '@/ui/components/switchMenu/SwitchItem';
 
 
 const items: SwitchItem[] = [

@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue/dist/iconify.js";
+import {ButtonBase, ModalAddGroup} from '@/ui/components';
 import HeaderPanel from "./components/headerPanel/HeaderPanel.vue";
 import PanelMenuLayout from "./layout/PanelMenuLayout.vue";
-import ButtonBase from '@/components/buttonBase/ButtonBase.vue';
-import ModalAddGroup from "@/components/modalAddGroup/ModalAddGroup.vue";
 import { ref } from "vue";
 defineProps<{
     cursorType: string,

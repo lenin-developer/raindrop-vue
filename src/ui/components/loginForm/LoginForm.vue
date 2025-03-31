@@ -3,13 +3,12 @@ import { useRouter } from 'vue-router';
 import {
   SocialMediaButton,
   HrCustom,
-  InputBase,
-  ButtonBase
-} from '@/components';
+  ButtonBase,
+  InputLabel
+} from '@/ui/components';
 
-import {IconGoogle, IconFacebook, IconMail, IconKey} from '@/components/icons'
+import {IconGoogle, IconFacebook, IconMail, IconKey} from '@/ui/components/icons'
 import type { SwitchItem } from '../switchMenu/SwitchItem';
-import InputLabel from '../inputLabel/InputLabel.vue';
 
 const router = useRouter();
 
