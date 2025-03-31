@@ -6,7 +6,7 @@ export default () => {
     plugins: [
       postcssGlobalData({
         files: [
-          './src/css/responsive.css'
+          './src/ui/css/responsive.css',
         ]
       }),
       postcssPresetEnv({
