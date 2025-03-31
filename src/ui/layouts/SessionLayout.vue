@@ -1,4 +1,3 @@
-import { defineConfig } from 'vitest/config';
 <script lang="ts" setup></script>
 
 <template>

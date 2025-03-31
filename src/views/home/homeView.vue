@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import {HomeLayout} from '@/ui/layouts';
 import PanelMenu from '@/sections/home/panelMenu/PanelMenu.vue';
-import HomeLayout from '@/layouts/HomeLayout.vue';
 import HeaderOpcion from '@/sections/home/headerOpcion/HeaderOpcion.vue';
 
 </script>

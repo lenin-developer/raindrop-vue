@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref, type Ref } from 'vue';
-import SessionLayout from '@/layouts/SessionLayout.vue'
+import {SessionLayout} from '@/ui/layouts'
 import { LoginForm, SessionForm, SwichMenu } from '@/ui/components';
 import type { SwitchItem } from '@/ui/components/switchMenu/SwitchItem';
 
