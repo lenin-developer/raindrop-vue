@@ -1,6 +1,6 @@
 <script setup lang='ts'>
 import { inject } from 'vue';
-import { PROVIDER_SHOW_PANEL, type TypeSetResizePanel } from "@/consts/keys/provider";
+import { PROVIDER_SHOW_PANEL, type TypeSetResizePanel } from "@/env/constants/providers/provider";
 import { Icon } from "@iconify/vue";
 
 const  {showPanel} = inject<TypeSetResizePanel>(PROVIDER_SHOW_PANEL)!;

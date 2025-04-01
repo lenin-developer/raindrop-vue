@@ -2,7 +2,7 @@
 import { ref, provide, reactive } from 'vue';
 import type { Ref } from 'vue';
 //----
-import { PROVIDER_SHOW_PANEL } from '@/consts/keys/provider';
+import { PROVIDER_SHOW_PANEL } from '@/env/constants/providers/provider';
 
 
 type TypeWidthPanel = {
