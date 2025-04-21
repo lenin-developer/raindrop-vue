@@ -9,3 +9,6 @@ export { default as PanelIcons } from "@/ui/components/panelIcons/PanelIcons.vue
 export { default as SocialMediaButton } from "@/ui/components/socialMediaButton/SocialMediaButton.vue"
 export { default as SwichMenu } from "@/ui/components/switchMenu/SwitchMenu.vue"
 export { default as WrapperInputIcons } from "@/ui/components/wrapperInputIcons/WrapperInputIcons.vue"
+export { default as WorkspaceSelected } from "@/ui/components/workspaceInputSelected/WorkspaceInputSelected.vue"
+export { default as WorkspacePanelSelected } from "@/ui/components/workspacePanelSelected/WorkspacePanelSelected.vue"
+export { default as WorkspaceName } from "@/ui/components/workspaceName/WorkspaceName.vue"
