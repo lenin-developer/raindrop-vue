@@ -28,6 +28,7 @@ const  {showPanel} = inject<TypeSetResizePanel>(PROVIDER_SHOW_PANEL)!;
     height: 80px;
     padding: 6px;
     background-color: var(--color-blue-100);
+    background-color: var(--color-primary);
 
     & :where(p) {
         user-select: none;

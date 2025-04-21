@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue/dist/iconify.js";
-import {ButtonBase, ModalAddGroup} from '@/ui/components';
+import { ButtonBase, ModalAddGroup } from '@/ui/components';
 import HeaderPanel from "./components/headerPanel/HeaderPanel.vue";
 import PanelMenuLayout from "./layout/PanelMenuLayout.vue";
+import { WorkspaceSelected } from '@/ui/components';
 import { ref } from "vue";
+
 defineProps<{
     cursorType: string,
 }>();
@@ -26,6 +28,9 @@ const openModal = () => {
     <PanelMenuLayout>
         <template #panel-header>
             <HeaderPanel />
+        </template>
+        <template #panel-workspace>
+            <WorkspaceSelected />
         </template>
         <template #panel-opcion>
             <ButtonBase @click="openModal" :class="$style.btn" aria-label="agregar categoria">
@@ -53,12 +58,13 @@ const openModal = () => {
     border: 1px solid transparent;
     cursor: col-resize;
     background-color: var(--color-gray-transparent-100);
+    background-color: var(--color-gray-200);
     transition: background 1s;
 
     &:hover {
-        width: 3px;
+        /* width: 3px; */
         cursor: col-resize;
-        border-color: var(--color-secondary);
+        background-color: var(--color-secondary);
     }
 }
 

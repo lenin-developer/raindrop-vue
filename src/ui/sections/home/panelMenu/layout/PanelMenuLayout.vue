@@ -5,6 +5,8 @@
     <div :class="$style?.layout">
         <div>
             <slot name="panel-header" />
+            <hr :class="$style.hr"  >
+            <slot name="panel-workspace" ></slot>
             <slot name="panel-opcion" />
             <section>
                 <slot name="pabel-list" />
@@ -23,4 +25,11 @@
         width: 100%;
     }
 }
+
+.hr {
+        margin: 0px;
+        border: 0px;
+        height: 1px;
+        background-color: var(--color-gray-300);    
+    }
 </style>
