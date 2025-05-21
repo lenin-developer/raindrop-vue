@@ -21,7 +21,7 @@
     display: flex;
     width: 100%;
 
-    & :where(div) {
+    & > :where(div) {
         width: 100%;
     }
 }
