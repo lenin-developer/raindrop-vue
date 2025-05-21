@@ -8,7 +8,7 @@ import {
 } from '@/ui/components';
 
 import {IconGoogle, IconFacebook, IconMail, IconKey} from '@/ui/components/icons'
-import type { SwitchItem } from '../navigation/switchMenu/SwitchItem';
+import type { SwitchItem } from '@/ui/components/navigation/switchMenu/SwitchItem';
 
 const router = useRouter();
 
