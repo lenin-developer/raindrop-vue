@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 import { ref } from 'vue';
 import { Icon } from "@iconify/vue"
-import { WorkspacePanelSelected } from '@/ui/components';
+import WorkspacePanelSelected  from '../workspacePanelSelected/WorkspacePanelSelected.vue';
 
 const show = ref(false);
 
@@ -13,12 +13,12 @@ const show = ref(false);
         <section :class="$style.workspace_container">
             <button :class="$style.workspace_btn" @click="() => { show = !show }">
                 Workspace
-                <Icon icon="bxs:down-arrow" />
+                <Icon icon="bxs:down-arrow" :rotate="show ? 90 : 0" />
             </button>
             <div :class="$style.workspace_name">
                 <p>nombre nombre</p>
             </div>
-            <WorkspacePanelSelected :show="show" />
+            <WorkspacePanelSelected  v-model:show="show" />
         </section>
     </div>
 </template>
@@ -53,7 +53,6 @@ const show = ref(false);
 
         .workspace_container {
             background-color: red;
-            /*#162033 */
             ;
         }
     }

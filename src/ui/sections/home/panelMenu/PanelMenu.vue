@@ -3,7 +3,7 @@ import { Icon } from "@iconify/vue/dist/iconify.js";
 import { ButtonBase, ModalAddGroup } from '@/ui/components';
 import HeaderPanel from "./components/headerPanel/HeaderPanel.vue";
 import PanelMenuLayout from "./layout/PanelMenuLayout.vue";
-import { WorkspaceSelected } from '@/ui/components';
+import  WorkspaceInputSelected  from '../workSpace/workspaceInputSelected/WorkspaceInputSelected.vue';
 import { ref } from "vue";
 
 defineProps<{
@@ -30,7 +30,7 @@ const openModal = () => {
             <HeaderPanel />
         </template>
         <template #panel-workspace>
-            <WorkspaceSelected />
+            <WorkspaceInputSelected />
         </template>
         <template #panel-opcion>
             <ButtonBase @click="openModal" :class="$style.btn" aria-label="agregar categoria">

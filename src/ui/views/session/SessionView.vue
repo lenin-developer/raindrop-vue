@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { ref, type Ref } from 'vue';
 import {SessionLayout} from '@/ui/layouts'
-import { LoginForm, SwichMenu } from '@/ui/components';
-import type { SwitchItem } from '@/ui/components/switchMenu/SwitchItem';
+import { LoginForm, SwitchMenu } from '@/ui/components';
+import type { SwitchItem } from '@/ui/components/navigation/switchMenu/SwitchItem';
 
 
 const items: SwitchItem[] = [
@@ -24,7 +24,7 @@ const loginOrSignIn = ref({ ...items?.[0] }) as Ref<SwitchItem>;
 <template>
   <SessionLayout>
       <template v-slot:menu>
-        <SwichMenu :items="items" v-model="loginOrSignIn" />
+        <SwitchMenu :items="items" v-model="loginOrSignIn" />
       </template>
       <template v-slot:form>
         <LoginForm :session="loginOrSignIn" />

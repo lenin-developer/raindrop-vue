@@ -1,12 +1,18 @@
 <script setup lang="ts">
-defineProps<{
+
+import type { ButtonHTMLAttributes } from 'vue'
+defineOptions({ inheritAttrs: false })
+
+type buttonBaseType = {
     paddingIconLeft?: number
-}>()
+} &  /* @vue-ignore */  ButtonHTMLAttributes;
+
+defineProps<buttonBaseType>()
 
 </script>
 
 <template>
-    <button type="button" :class="$style.button">
+    <button type="button" :class="$style.button" v-bind="$attrs" >
         <span v-if="$slots.iconLeft" :class="$style.buttton_icon">
             <slot name="iconLeft"></slot>
         </span>
