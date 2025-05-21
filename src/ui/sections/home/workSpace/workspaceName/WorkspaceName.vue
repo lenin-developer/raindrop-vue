@@ -1,9 +1,13 @@
 <script setup lang='ts'>
+import type { ButtonHTMLAttributes } from 'vue';
 
-defineProps<{
+
+type props = {
     name: string,
     isDefaul: boolean
-}>();
+} & /* @vue-ignore */  ButtonHTMLAttributes;
+
+defineProps<props>();
 
 </script>
 
@@ -14,7 +18,7 @@ defineProps<{
             <span>{{ isDefaul ? "(default)" : '' }}</span>
         </div>
         <div :class="$style.workspaceName_contentName">
-            <p>name name name</p>
+            <button>name name name</button>
         </div>
     </li>
 
@@ -46,19 +50,24 @@ defineProps<{
     border-radius: 0.375rem;
     overflow: hidden;
 
-    &:hover {
-        background-color: #1D2B3D;
-        cursor: pointer;
-    }
 
-
-    &> :where(p) {
-        margin: 10px 0px;
+    &> :where(button) {
+        height: 100%;
+        width: 100%;
+        padding: 10px 0px;
         text-overflow: ellipsis;
         white-space: nowrap;
         word-wrap: break-word;
         overflow: hidden;
-        color: v-bind(isDefaul ? "var(--color-secondary)" : "var(--color-gray-100)"  );
+        background: transparent;
+        border: none;
+        
+        color: v-bind(isDefaul ? "var(--color-secondary)" : "var(--color-gray-100)");
+
+        &:hover {
+            background-color: #1D2B3D;
+            cursor: pointer;
+        }
     }
 
 }

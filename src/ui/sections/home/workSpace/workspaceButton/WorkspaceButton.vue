@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 import { ref } from 'vue';
 import { Icon } from "@iconify/vue"
-import WorkspacePanelSelected  from '../workspacePanelSelected/WorkspacePanelSelected.vue';
+import WorkspacePanelSelected  from '../workspacePanel/WorkspacePanel.vue';
 
 const show = ref(false);
 

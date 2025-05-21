@@ -3,7 +3,7 @@ import { Icon } from "@iconify/vue/dist/iconify.js";
 import { ButtonBase, ModalAddGroup } from '@/ui/components';
 import HeaderPanel from "./components/headerPanel/HeaderPanel.vue";
 import PanelMenuLayout from "./layout/PanelMenuLayout.vue";
-import  WorkspaceInputSelected  from '../workSpace/workspaceInputSelected/WorkspaceInputSelected.vue';
+import  WorkspaceInputSelected  from '../workSpace/workspaceButton/WorkspaceButton.vue';
 import { ref } from "vue";
 
 defineProps<{
