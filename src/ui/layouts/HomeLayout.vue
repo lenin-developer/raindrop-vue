@@ -28,7 +28,7 @@ const minResize = Number(widthMin) / 4;
 
 defineSlots<{
     panelMenu(props: { activeResizePanel: () => void, cursorType: string, stopResizePanel: () => void }): any,
-    headerOpcion(props: { showPanel: () => void, isPanelOpen: boolean }): any,
+    headerHome(props: { showPanel: () => void, isPanelOpen: boolean }): any,
     mainContent(props: {}): any
 }>()
 
@@ -83,7 +83,7 @@ provide(PROVIDER_SHOW_PANEL, { showPanel });
 
         <main :class="$style.layout__main">
             <header>
-                <slot name="headerOpcion" :showPanel="showPanel" :isPanelOpen="isPanelOpen" />
+                <slot name="headerHome" :showPanel="showPanel" :isPanelOpen="isPanelOpen" />
             </header>
             <section>
                 <slot name="mainContent" />

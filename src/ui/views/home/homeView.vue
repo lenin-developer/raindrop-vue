@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {HomeLayout} from '@/ui/layouts';
 import PanelMenu from '@/ui/sections/home/panelMenu/PanelMenu.vue';
-import HeaderOpcion from '@/ui/sections/home/headerOpcion/HeaderOpcion.vue';
+import HeaderHome from '@/ui/sections/home/headerHome/HeaderHome.vue';
 
 </script>
 
@@ -11,8 +11,8 @@ import HeaderOpcion from '@/ui/sections/home/headerOpcion/HeaderOpcion.vue';
             <PanelMenu @active-resize-panel="propsPanel.activeResizePanel" :cursor-type="propsPanel.cursorType"
                 @stop-resize-panel="propsPanel.stopResizePanel" />
         </template>
-        <template #headerOpcion="propsOpcion">
-            <HeaderOpcion @showPanel="propsOpcion?.showPanel" :isPanelOpen="propsOpcion.isPanelOpen" />
+        <template #headerHome="headerHome">
+            <HeaderHome @showPanel="headerHome?.showPanel" :isPanelOpen="headerHome.isPanelOpen" />
         </template>
         <template #mainContent>
             <main>
