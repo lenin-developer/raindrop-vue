@@ -13,5 +13,7 @@
     --color-blue-100: #1E293B;
     --color-blue-200: #131A30;
     --color-blue-transparent-100: #02042072;
+
+     --colo-gray-400: oklch(70.4% .04 256.788);
     
   }
