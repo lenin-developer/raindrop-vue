@@ -4,10 +4,13 @@ import type { ButtonHTMLAttributes } from 'vue';
 
 type props = {
     name: string,
-    isDefaul: boolean
+    selected: boolean
 } & /* @vue-ignore */  ButtonHTMLAttributes;
 
 defineProps<props>();
+defineEmits<{
+  selectWorkpace: []
+}>();
 
 </script>
 
@@ -15,10 +18,10 @@ defineProps<props>();
 
     <li :class="$style.workspaceName">
         <div :class="$style.workspaceName_contenDefault">
-            <span>{{ isDefaul ? "(default)" : '' }}</span>
+            <span>{{ selected ? "(default)" : '' }}</span>
         </div>
         <div :class="$style.workspaceName_contentName">
-            <button>name name name</button>
+            <button @click="$emit('selectWorkpace')" >{{name}}</button>
         </div>
     </li>
 
@@ -62,7 +65,7 @@ defineProps<props>();
         background: transparent;
         border: none;
         
-        color: v-bind(isDefaul ? "var(--color-secondary)" : "var(--color-gray-100)");
+        color: v-bind(selected ? "var(--color-secondary)" : "var(--color-gray-100)");
 
         &:hover {
             background-color: #1D2B3D;

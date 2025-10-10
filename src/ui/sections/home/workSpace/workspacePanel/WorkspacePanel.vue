@@ -5,8 +5,13 @@ import WorkspaceName from '../workspaceName/WorkspaceName.vue';
 
 const show = defineModel<boolean>('show', { required: true });
 
-const UpdateShowEvet = ()=> {
+const showPanelNamesWorkpaces = ()=> {
     show.value = !show.value
+}
+
+const selectWorkspace = () => {
+    console.log('hacer algo');
+    showPanelNamesWorkpaces()
 }
 
 </script>
@@ -20,13 +25,33 @@ const UpdateShowEvet = ()=> {
             </button>
         </section>
         <ul :class="$style.workspace_list">
-            <WorkspaceName name="nomvre 1" :is-defaul="false" />
-            <WorkspaceName name="nomvre 2" :is-defaul="false" />
-            <WorkspaceName name="nomvre 3" :is-defaul="true" />
-            <WorkspaceName name="nomvre 4" :is-defaul="false" />
+            <WorkspaceName name="nombre 1" :selected="false" @select-workpace="selectWorkspace" />
+            <WorkspaceName name="nombre 2" :selected="false" @select-workpace="selectWorkspace"  />
+            <WorkspaceName name="nombre 3" :selected="true" @select-workpace="selectWorkspace"  />
+            <WorkspaceName name="nombre 4" :selected="false" @select-workpace="selectWorkspace"  />
+            <WorkspaceName name="nombre 1" :selected="false" @select-workpace="selectWorkspace" />
+            <WorkspaceName name="nombre 2" :selected="false" @select-workpace="selectWorkspace"  />
+            <WorkspaceName name="nombre 3" :selected="true" @select-workpace="selectWorkspace"  />
+            <WorkspaceName name="nombre 4" :selected="false" @select-workpace="selectWorkspace"  />
+            <WorkspaceName name="nombre 1" :selected="false" @select-workpace="selectWorkspace" />
+            <WorkspaceName name="nombre 2" :selected="false" @select-workpace="selectWorkspace"  />
+            <WorkspaceName name="nombre 3" :selected="true" @select-workpace="selectWorkspace"  />
+            <WorkspaceName name="nombre 4" :selected="false" @select-workpace="selectWorkspace"  />
+            <WorkspaceName name="nombre 1" :selected="false" @select-workpace="selectWorkspace" />
+            <WorkspaceName name="nombre 2" :selected="false" @select-workpace="selectWorkspace"  />
+            <WorkspaceName name="nombre 3" :selected="true" @select-workpace="selectWorkspace"  />
+            <WorkspaceName name="nombre 4" :selected="false" @select-workpace="selectWorkspace"  />
+            <WorkspaceName name="nombre 1" :selected="false" @select-workpace="selectWorkspace" />
+            <WorkspaceName name="nombre 2" :selected="false" @select-workpace="selectWorkspace"  />
+            <WorkspaceName name="nombre 3" :selected="true" @select-workpace="selectWorkspace"  />
+            <WorkspaceName name="nombre 4" :selected="false" @select-workpace="selectWorkspace"  />
+            <WorkspaceName name="nombre 1" :selected="false" @select-workpace="selectWorkspace" />
+            <WorkspaceName name="nombre 2" :selected="false" @select-workpace="selectWorkspace"  />
+            <WorkspaceName name="nombre 3" :selected="true" @select-workpace="selectWorkspace"  />
+            <WorkspaceName name="nombre 4" :selected="false" @select-workpace="selectWorkspace"  />
         </ul>
         <section :class="$style.workspace_footer">
-            <ButtonBase @click="UpdateShowEvet" >nuevo workspace</ButtonBase>
+            <ButtonBase @click="showPanelNamesWorkpaces" >nuevo workspace</ButtonBase>
         </section>
     </div>
 </template>
@@ -99,6 +124,8 @@ const UpdateShowEvet = ()=> {
     padding: 0px 8px;
     width: 100%;
     margin-top: 8px;
+    max-height: 60vh;
+    overflow: auto;
 }
 
 
